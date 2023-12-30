@@ -8,31 +8,32 @@ from .models import Author, Item
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'name',
         'nickname',
     )
-    filter_horizontal = ('items',)
+    list_display_links = ('name',)
+    search_fields = ['name']
 
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'title',
         'collection',
         'creator',
         'owner',
-        'price_eth',
+        'price',
         'on_sale'
     )
-    ist_editable = (
-        'title',
-        'collection',
-        'price_eth',
-        'on_sale'
+    list_editable = (
+        'price',
+        'on_sale',
+        'creator',
+        'owner',
     )
-    search_fields = (
-        'title',
-        'owner')
+    search_fields = ['title']
     list_filter = ('on_sale',)
     list_display_links = ('title',)
     # readonly_fields = ('date_started',)

@@ -5,7 +5,7 @@ from . import views
 app_name = 'profiling'
 
 urlpatterns = [
-    path('profile/1', views.profile, name='profile'),
+    path('<slug:author_slug>', views.profile, name='profile'),
     path('collection/1', views.collection, name='collection'),
-    path('item/1', views.item, name='item')
+    path('item/<int:id>', views.item, name='item')
 ]
