@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block titile %}
-Gigaland - {{ '' }}
+Gigaland - {{ item_info.title }}
 {% endblock %}
 {% block content %}
         <div class="no-bottom no-top" id="content">
@@ -17,13 +17,13 @@ Gigaland - {{ '' }}
                         <div class="col-md-6">
                             <div class="item_info">
                                 Auctions ends in <div class="de_countdown" data-year="2022" data-month="4" data-day="16" data-hour="8"></div>
-                                <h2>AnimeSailorClub #304</h2>
+                                <h2>{{ item_info.title }}</h2>
                                 <div class="item_info_counts">
                                     <div class="item_info_type"><i class="fa fa-image"></i>Art</div>
                                     <div class="item_info_views"><i class="fa fa-eye"></i>250</div>
                                     <div class="item_info_like"><i class="fa fa-heart"></i>18</div>
                                 </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                <p>{{ item_info.description }}</p>
 
                                 <div class="d-flex flex-row">
                                     <div class="mr40">
@@ -36,7 +36,7 @@ Gigaland - {{ '' }}
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="author.html">Monica Lucas</a>
+                                                <a href="author.html">{{ item_info.creator }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@ Gigaland - {{ '' }}
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="collection.html">AnimeSailorClub</a>
+                                                <a href="collection.html">{{ item_info.collection }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@ Gigaland - {{ '' }}
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="author.html">Stacy Long</a>
+                                                <a href="author.html">{{ item_info.owner }}</a>
                                             </div>
                                         </div>
 
@@ -277,7 +277,7 @@ Gigaland - {{ '' }}
                                 <div class="spacer-10"></div>
 
                                 <h6>Price</h6>
-                                <div class="nft-item-price"><img src="images/misc/ethereum.svg" alt=""><span>0.059</span>($253.67)</div>
+                                <div class="nft-item-price"><img src="images/misc/ethereum.svg" alt=""><span>{{ item_info.price_eth }}</span>($253.67)</div>
 
                                 <!-- Button trigger modal -->
                                 <a href="#" class="btn-main btn-lg" data-bs-toggle="modal" data-bs-target="#buy_now">

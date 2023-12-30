@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Item
 
 
 def profile(request):
@@ -13,4 +14,8 @@ def collection(request):
 
 def item(request):
     template = 'profiling/item-details.html'
-    return render(request, template)
+    item_info = Item.objects.all()[0]
+    context = {
+        'item_info': item_info,
+    }
+    return render(request, template, context)
