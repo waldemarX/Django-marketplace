@@ -4,7 +4,7 @@ from .models import Item, Author
 
 def profile(request, author_slug):
     template = 'profiling/author.html'
-    author_info = Author.objects.filter(nickname=author_slug)[0]
+    author_info = Author.objects.get(nickname=author_slug)
     item_info = Item.objects.filter(owner=author_info.id)
     context = {
         'author_info': author_info,
@@ -20,7 +20,7 @@ def collection(request):
 
 def item(request, id):
     template = 'profiling/item-details.html'
-    item_info = Item.objects.filter(id=id)[0]
+    item_info = Item.objects.get(id=id)
     context = {
         'item_info': item_info,
     }

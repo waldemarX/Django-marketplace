@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from marketplace.settings import DEBUG
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
     path('', include('main.urls', namespace='main')),
     path('news/', include('news.urls', namespace='news')),
     path('p/', include('profiling.urls', namespace='profiling')),
 ]
+
+
+if DEBUG:
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
