@@ -120,8 +120,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# static files
-marketplace/static_files/
+
+gigaland_template/
 
 
 # mypy
