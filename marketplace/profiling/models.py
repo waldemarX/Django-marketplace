@@ -4,6 +4,7 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField('name', max_length=128)
     nickname = models.CharField('nickname', max_length=128, unique=True)
+    avatar = models.ImageField(upload_to='author_avatar', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Author'
@@ -17,7 +18,7 @@ class Item(models.Model):
     title = models.CharField('title', max_length=128)
     description = models.TextField('description', blank=True, null=True)
     collection = models.CharField('collection', max_length=128, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='item_image', blank=True, null=True)
     creator = models.ForeignKey(
         "Author",
         on_delete=models.CASCADE,
