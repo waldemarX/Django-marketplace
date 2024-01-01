@@ -12,7 +12,7 @@ Gigaland - {{ item_info.title }}
                 <div class="container">
 					<div class="row">
 					    <div class="col-md-6 text-center">
-                            <img src="images/items/big-4.jpg" class="img-fluid img-rounded mb-sm-30" alt="">
+                            <img src="{{ item_info.image.url }}" class="img-fluid img-rounded mb-sm-30" alt="">
                         </div>
                         <div class="col-md-6">
                             <div class="item_info">
@@ -30,16 +30,17 @@ Gigaland - {{ item_info.title }}
                                         <h6>Creator</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="author.html">
-                                                    <img class="lazy" src="images/author/author-1.jpg" alt="">
+                                                <a href="{% url "profiling:profile" creator.nickname %}">
+                                                    <img class="lazy" src="{{ creator.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="author.html">{{ item_info.creator }}</a>
+                                                <a href="{% url "profiling:profile" creator.nickname %}">{{ creator.name }}</a>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div>
                                         <h6>Collection</h6>
                                         <div class="item_author">                                    
@@ -54,6 +55,7 @@ Gigaland - {{ item_info.title }}
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="spacer-40"></div>
@@ -71,13 +73,13 @@ Gigaland - {{ item_info.title }}
                                         <h6>Owner</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="author.html">
-                                                    <img class="lazy" src="images/author/author-10.jpg" alt="">
+                                                <a href="{% url "profiling:profile" owner.nickname %}">
+                                                    <img class="lazy" src="{{ owner.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="author.html">{{ item_info.owner }}</a>
+                                                <a href="{% url "profiling:profile" owner.nickname %}">{{ owner.name }}</a>
                                             </div>
                                         </div>
 
@@ -277,7 +279,7 @@ Gigaland - {{ item_info.title }}
                                 <div class="spacer-10"></div>
 
                                 <h6>Price</h6>
-                                <div class="nft-item-price"><img src="images/misc/ethereum.svg" alt=""><span>{{ item_info.price }}</span>($253.67)</div>
+                                <div class="nft-item-price"><img src="{% static "images/misc/ethereum.svg" %}" alt=""><span>{{ item_info.price }}</span>(${{ item_info.price_in_dlr }})</div>
 
                                 <!-- Button trigger modal -->
                                 <a href="#" class="btn-main btn-lg" data-bs-toggle="modal" data-bs-target="#buy_now">

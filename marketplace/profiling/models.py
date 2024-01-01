@@ -1,4 +1,5 @@
 from django.db import models
+import requests
 
 
 class Author(models.Model):
@@ -40,3 +41,9 @@ class Item(models.Model):
 
     def __str__(self):
         return self.title
+
+    def price_in_dlr(self):
+        actual_price = requests.get(
+            'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+            ).json()['USD']
+        return f'{float(self.price) * actual_price:.2f}'

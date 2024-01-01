@@ -21,7 +21,11 @@ def collection(request):
 def item(request, id):
     template = 'profiling/item-details.html'
     item_info = Item.objects.get(id=id)
+    creator = Author.objects.get(id=item_info.creator.id)
+    owner = Author.objects.get(id=item_info.owner.id)
     context = {
         'item_info': item_info,
+        'creator': creator,
+        'owner': owner
     }
     return render(request, template, context)

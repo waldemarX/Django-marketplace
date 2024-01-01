@@ -21,7 +21,7 @@ Gigaland - {{ author_info.name }}
                    <div class="d_profile de-flex">
                         <div class="de-flex-col">
                             <div class="profile_avatar">
-                                <img src="images/author_single/author_thumbnail.jpg" alt="">
+                                <img src="{{ author_info.avatar.url }}" alt="">
                                 <i class="fa fa-check"></i>
                                 <div class="profile_name">
                                     <h4>
@@ -82,8 +82,8 @@ Gigaland - {{ author_info.name }}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="item-details.html">
-                                                        <img src="images/author_single/porto-1.jpg" class="lazy nft__item_preview" alt="">
+                                                    <a href="{% url "profiling:item" item.id %}">
+                                                        <img src="{{ item.image.url }}" class="lazy nft__item_preview" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="nft__item_info">
@@ -136,8 +136,8 @@ Gigaland - {{ author_info.name }}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="item-details.html">
-                                                        <img src="images/author_single/porto-3.jpg" class="lazy nft__item_preview" alt="">
+                                                    <a href="{% url "profiling:item" item.id %}">
+                                                        <img src="{{ item.image.url }}" class="lazy nft__item_preview" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="nft__item_info">
