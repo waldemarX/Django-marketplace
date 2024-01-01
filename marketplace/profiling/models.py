@@ -17,7 +17,7 @@ class Item(models.Model):
     title = models.CharField('title', max_length=128)
     description = models.TextField('description', blank=True, null=True)
     collection = models.CharField('collection', max_length=128, blank=True, null=True)
-    # image = models.ImageField(upload_to="")
+    image = models.ImageField(blank=True, null=True)
     creator = models.ForeignKey(
         "Author",
         on_delete=models.CASCADE,
