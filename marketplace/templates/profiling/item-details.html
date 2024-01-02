@@ -23,20 +23,20 @@ Gigaland - {{ item_info.title }}
                                     <div class="item_info_views"><i class="fa fa-eye"></i>250</div>
                                     <div class="item_info_like"><i class="fa fa-heart"></i>18</div>
                                 </div>
-                                <p>{{ item_info.description }}</p>
+                                <p>{{ item_info.collection.description }}</p>
 
                                 <div class="d-flex flex-row">
                                     <div class="mr40">
                                         <h6>Creator</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="{% url "profiling:profile" creator.nickname %}">
-                                                    <img class="lazy" src="{{ creator.avatar.url }}" alt="">
+                                                <a href="{% url "profiling:profile" item_info.creator.nickname %}">
+                                                    <img class="lazy" src="{{ item_info.creator.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "profiling:profile" creator.nickname %}">{{ creator.name }}</a>
+                                                <a href="{% url "profiling:profile" item_info.creator.nickname %}">{{ item_info.creator.name }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -73,13 +73,13 @@ Gigaland - {{ item_info.title }}
                                         <h6>Owner</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="{% url "profiling:profile" owner.nickname %}">
-                                                    <img class="lazy" src="{{ owner.avatar.url }}" alt="">
+                                                <a href="{% url "profiling:profile" item_info.owner.nickname %}">
+                                                    <img class="lazy" src="{{ item_info.owner.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "profiling:profile" owner.nickname %}">{{ owner.name }}</a>
+                                                <a href="{% url "profiling:profile" item_info.owner.nickname %}">{{ item_info.owner.name }}</a>
                                             </div>
                                         </div>
 
