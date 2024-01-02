@@ -16,10 +16,8 @@ class Author(models.Model):
 
 
 class Item(models.Model):
-    title = models.CharField('title', max_length=128)
-    description = models.TextField('description', blank=True, null=True)
-    collection = models.CharField('collection', max_length=128, blank=True, null=True)
-    image = models.ImageField(upload_to='item_image', blank=True, null=True)
+    title = models.CharField('title', max_length=128, blank=True, null=True)
+    image = models.ImageField(upload_to='item_image')
     creator = models.ForeignKey(
         "Author",
         on_delete=models.CASCADE,
@@ -32,6 +30,12 @@ class Item(models.Model):
         related_name="owner",
         verbose_name="owner"
     )
+    collection = models.ForeignKey(
+        "Collection",
+        verbose_name='collection',
+        related_name="collection",
+        on_delete=models.CASCADE
+    )
     price = models.DecimalField('price_eth', default=0.00, max_digits=4, decimal_places=2)
     on_sale = models.BooleanField(default=False)
 
@@ -42,8 +46,21 @@ class Item(models.Model):
     def __str__(self):
         return self.title
 
-    def price_in_dlr(self):
+    def price_in_usd(self):
         actual_price = requests.get(
             'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
             ).json()['USD']
         return f'{float(self.price) * actual_price:.2f}'
+
+
+class Collection(models.Model):
+    title = models.CharField('title', max_length=128)
+    description = models.TextField('description', blank=True, null=True)
+    slug = models.CharField('slug', max_length=128)
+
+    class Meta:
+        verbose_name = 'Collection'
+        verbose_name_plural = 'Collections'
+
+    def __str__(self):
+        return self.title
