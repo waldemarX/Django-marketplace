@@ -23,6 +23,7 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path('', include('main.urls', namespace='main')),
     path('p/', include('profiling.urls', namespace='profiling')),
+    path('articles/', include('articles.urls', namespace='articles'))
 ]
 
 

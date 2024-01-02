@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titile %}
+Gigaland - Articles
+{% endblock %}
+
+{% block content %}
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            
+            <!-- section begin -->
+            <section id="subheader" class="text-light" data-bgimage="url(images/background/subheader.jpg) top">
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-md-12 text-center">
+									<h1>Articles</h1>
+									<p>Read, write, use!</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+			<section aria-label="section">
+                <div class="container">
+                    <div class="row">
+
+                        {% for article in articles %}
+						<div class="col-lg-4 col-md-6 mb30">
+							<div class="bloglist item">
+                                    <div class="post-content">
+                                        <div class="post-image">
+                                            <img alt="" src="images/news/news-1.jpg" class="lazy">
+                                        </div>
+                                        <div class="post-text">
+                                            <span class="p-tagline">{{ article.category }}</span>
+                                            <span class="p-date">{{ article.pub_date|date:"E d Y" }}</span>
+                                            <h4><a href="news-single.html">{{ article.title }}<span></span></a></h4>
+                                            <p>{{ article.text|truncatewords:20 }}</p>
+                                            <a class="btn-main" href="news-single.html">Read more</a>
+                                        </div>
+                                    </div>
+                                </div>
+						</div>
+						{% endfor %}
+
+                        <div class="spacer-single"></div>
+                                
+                        <ul class="pagination">
+                            <li><a href="#">Prev</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </section>
+
+        </div>
+{% endblock content %}
