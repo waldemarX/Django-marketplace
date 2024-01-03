@@ -159,12 +159,10 @@ Gigaland - {{ post.title }}
                                 sit aspernatur aut odit aut fugit, sed quia consequuntur magni
                             </div>
                             <div class="widget widget_tags">
-                                <h4>Tags</h4>
+                                <h4>Category</h4>
                                 <div class="small-border"></div>
                                 <ul>
-                                    {% for tag in post.tags.all %}
-                                    <li><a href="#link">{{ tag }}</a></li>
-                                    {% endfor %}
+                                    <li><a href="#link" style="font-size: 100%;">{{ post.category }}</a></li>
                                 </ul>
                             </div>
 

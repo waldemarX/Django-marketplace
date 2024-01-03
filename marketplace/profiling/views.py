@@ -22,7 +22,7 @@ def collection(request):
 
 def item(request, id):
     template = 'profiling/item-details.html'
-    item_info = Item.objects.get(id=id)
+    item_info = Item.objects.select_related('owner').get(id=id)
     context = {
         'item_info': item_info,
     }

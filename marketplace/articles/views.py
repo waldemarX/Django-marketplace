@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Post
+from .models import Post, Categories
 
 
 def articles(request):
     template = 'articles/articles.html'
     page = request.GET.get('page', 1)
-    posts = Post.objects.filter(is_published=True).order_by('-pub_date')
+    posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
+    categories = Categories.objects.all().order_by('category_name')
     paginator = Paginator(posts, per_page=6)
     current_page = paginator.page(page)
     context = {
         'posts': current_page,
+        'categories': categories,
         'subtitle': 'Articles',
         'dark': True
     }

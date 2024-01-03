@@ -17,7 +17,6 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Article author'
     )
-    tags = models.ManyToManyField('Tags', blank=True, null=True)
     category = models.ForeignKey(
         'Categories',
         on_delete=models.CASCADE,
@@ -32,17 +31,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Tags(models.Model):
-    tag_name = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name = 'Tag'
-        verbose_name_plural = 'Tags'
-
-    def __str__(self):
-        return self.tag_name
 
 
 class Categories(models.Model):
