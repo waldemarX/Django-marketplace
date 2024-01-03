@@ -38,13 +38,54 @@ Gigaland - Articles
                         <div class="spacer-single"></div>
                                 
                         <ul class="pagination">
-                            <li><a href="#">Prev</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">Next</a></li>
+
+                            {% comment %} "Previous" button {% endcomment %}
+                            {% if posts.has_previous %}
+                                <li><a style="color: #8364e2; font-weight: bold;" href="?page={{posts.previous_page_number}}">Prev</a></li>
+                            {% else %}
+                                <li><a>Prev</a></li>
+                            {% endif %}
+
+                            {% comment %} Button "1" {% endcomment %}
+                            {% if posts.number == 1 %}
+                                <li class="active"><a>
+                            {% else %}
+                                <li><a href="?page=1">
+                            {% endif %}
+                                1</a></li>
+                            {% if posts.number > 4 %}
+                                <li><a>...</li></a>
+                            {% endif %}
+
+                            {% comment %} Pages cycle (2 > current > 2) {% endcomment %}
+                            {% for page in posts.paginator.page_range %}
+                            {% if posts.number >= posts.paginator.num_pages|add:-3 %}{% endif %}
+                            {% if page >= posts.number|add:-2 and page <= posts.number|add:2 and page != 1 %}
+                            {% if posts.number == page %}
+                                <li class="active"><a>
+                            {% else %}
+                                <li><a href="?page={{ page }}">
+                            {% endif %}
+                                {{ page }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% comment %} Button "Last page" {% endcomment %}
+                            {% if posts.number < posts.paginator.num_pages|add:-3 %}
+                                <li><a>...</li></a>
+                                <li><a href="?page={{ posts.paginator.num_pages }}">{{ posts.paginator.num_pages }}</a></li>
+                            {% endif %}
+                            {% if posts.number == posts.paginator.num_pages|add:-3 %}
+                                <li><a href="?page={{ posts.paginator.num_pages }}">{{ posts.paginator.num_pages }}</a></li>
+                            {% endif %}
+
+                            {% comment %} "Next" button {% endcomment %}
+                            {% if posts.has_next %}
+                            <li><a style="color: #8364e2; font-weight: bold;" href="?page={{posts.next_page_number}}">Next</a></li>
+                            {% else %}
+                            <li><a>Next</a></li>
+                            {% endif %}
+
                         </ul>
                         
                     </div>
