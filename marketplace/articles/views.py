@@ -4,14 +4,21 @@ from .models import Post
 
 def articles(request):
     template = 'articles/articles.html'
-    articles = Post.objects.filter(is_published=True).order_by('pub_date')
+    posts = Post.objects.filter(is_published=True).order_by('-pub_date')
     context = {
-        'articles': articles
+        'posts': posts,
+        'subtitle': 'Articles',
+        'dark': True
     }
     return render(request, template, context)
 
 
 def article_detail(request, article_id):
     template = 'articles/article-detail.html'
-    context = {}
+    post_details = Post.objects.get(pk=article_id)
+    context = {
+        'post': post_details,
+        'subtitle': post_details.title,
+        'dark': True
+    }
     return render(request, template, context)

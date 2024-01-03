@@ -7,6 +7,7 @@ class Post(models.Model):
     text = models.TextField(verbose_name='Text')
     highlighted_text = models.TextField(verbose_name='Highlighted Text', blank=True, null=True)
     is_published = models.BooleanField('Is published', default=True)
+    image = models.ImageField(upload_to='post_image', default='post_image/default.jpg')
     pub_date = models.DateTimeField(
         verbose_name='Publishing date',
         auto_now_add=True

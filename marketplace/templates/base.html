@@ -35,17 +35,22 @@
             {% include "includes/header.html" %}
             <!-- header close -->
 
+            <div class="no-bottom no-top" id="content">
+                <div id="top"></div>
+
             <!-- content begin -->
             {% block content %}
             {% endblock %}
             <!-- content close -->
+
+            </div>
 
             <a href="#" id="back-to-top"></a>
             
             <!-- footer begin -->
             {% include "includes/footer.html" %}
             <!-- footer close -->
-
+        
         </div>
 
         <!-- Javascript Files

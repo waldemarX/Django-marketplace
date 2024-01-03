@@ -15,6 +15,7 @@ class PostAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)
     list_editable = (
         'category',
+        'is_published'
     )
 
 
