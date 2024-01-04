@@ -162,7 +162,7 @@ Gigaland - {{ post.title }}
                                 <h4>Category</h4>
                                 <div class="small-border"></div>
                                 <ul>
-                                    <li><a href="#link" style="font-size: 100%;">{{ post.category }}</a></li>
+                                    <li><a href="{% url "articles:articles" %}?category={{ post.category.slug }}" style="font-size: 90%;">{{ post.category}}</a></li>
                                 </ul>
                             </div>
 

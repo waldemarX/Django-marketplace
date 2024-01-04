@@ -10,7 +10,6 @@ Gigaland - Articles
             {% include "includes/subheader.html" %}
             <!-- section close -->
             
-
             <!-- section begin -->
 			<section aria-label="section">
                 <div class="container">
@@ -25,38 +24,49 @@ Gigaland - Articles
                                         <div class="clearfix"></div>
                                     </div>
                                 </form>
-
-                                <div id="item_category" class="dropdown">
+                                
+                                {% if request.GET.category %}
+                                <div class="col text-center">
+                                    <a href="{% url "articles:articles" %}">Reset filters</a>
+                                </div>
+                                {% endif %}
+                                
+                                {% comment %} For better times {% endcomment %}
+                                {% comment %} <div id="item_category" class="dropdown">
                                     <a href="#" class="btn-selector">All categories</a>
                                     <ul>
-                                        <li class="active"><span>All categories</span></li>
+                                        <li class="active"><span><a href="?">All categories</a></span></li>
                                         {% for category in categories %}
                                         <li><span>{{ category }}</span></li>
                                         {% endfor %}
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
+                                </div> {% endcomment %}
+                                
 
+
+                            </div>
+                            
+                        </div>
+        
 
                         {% for post in posts %}
 						<div class="col-lg-4 col-md-6 mb30">
 							<div class="bloglist item">
                                     <div class="post-content">
                                         <div class="post-image">
-                                            <img alt="" src="{{ post.image.url }}" class="lazy">
+                                            <a href="{% url "articles:article_detail" post.id %}"><img alt="" src="{{ post.image.url }}" class="lazy"></a>
                                         </div>
                                         <div class="post-text">
                                             <span class="p-tagline">{{ post.category }}</span>
                                             <span class="p-date">{{ post.pub_date|date:"E d Y" }}</span>
                                             <h4><a href="{% url "articles:article_detail" post.id %}">{{ post.title }}<span></span></a></h4>
-                                            <p>{{ post.text|truncatewords:20 }}</p>
-                                            <a class="btn-main" href="{% url "articles:article_detail" post.id %}">Read more</a>
+                                            <p>{{ post.text|truncatewords:22 }}</p>
                                         </div>
                                     </div>
                                 </div>
 						</div>
 						{% endfor %}
+                        
 
                         <div class="spacer-single"></div>
                                 
@@ -111,6 +121,8 @@ Gigaland - Articles
 
                         </ul>
                         
+                        
+
                     </div>
                 </div>
             </section>

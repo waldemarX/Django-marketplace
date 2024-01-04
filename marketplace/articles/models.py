@@ -35,6 +35,7 @@ class Post(models.Model):
 
 class Categories(models.Model):
     category_name = models.CharField(max_length=50)
+    slug = models.CharField(max_length=50, default="category")
 
     class Meta:
         verbose_name = 'Category'

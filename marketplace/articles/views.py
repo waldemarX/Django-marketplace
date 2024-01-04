@@ -6,15 +6,21 @@ from .models import Post, Categories
 def articles(request):
     template = 'articles/articles.html'
     page = request.GET.get('page', 1)
-    posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
+    filter_category = request.GET.get('category', None)
+
+    if filter_category:
+        posts = Post.objects.select_related('category').filter(is_published=True, category__slug=filter_category).order_by('-pub_date')
+    else:
+        posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
     categories = Categories.objects.all().order_by('category_name')
     paginator = Paginator(posts, per_page=6)
     current_page = paginator.page(page)
+
     context = {
         'posts': current_page,
         'categories': categories,
         'subtitle': 'Articles',
-        'dark': True
+        'dark': True,
     }
     return render(request, template, context)
 
