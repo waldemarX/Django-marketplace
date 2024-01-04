@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Post, Categories
+from .models import Post
 
 
 def articles(request):
@@ -12,13 +12,11 @@ def articles(request):
         posts = Post.objects.select_related('category').filter(is_published=True, category__slug=filter_category).order_by('-pub_date')
     else:
         posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
-    categories = Categories.objects.all().order_by('category_name')
-    paginator = Paginator(posts, per_page=6)
+    paginator = Paginator(posts, per_page=1)
     current_page = paginator.page(page)
 
     context = {
         'posts': current_page,
-        'categories': categories,
         'subtitle': 'Articles',
         'dark': True,
     }
