@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load posts_tags %}
+
 {% block titile %}
 Gigaland - Articles
 {% endblock %}
@@ -83,7 +85,7 @@ Gigaland - Articles
                             {% if posts.number == 1 %}
                                 <li class="active"><a>
                             {% else %}
-                                <li><a href="?page=1">
+                                <li><a href="?{% change_params page=1 %}">
                             {% endif %}
                                 1</a></li>
                             {% if posts.number > 4 %}
@@ -97,7 +99,7 @@ Gigaland - Articles
                             {% if posts.number == page %}
                                 <li class="active"><a>
                             {% else %}
-                                <li><a href="?page={{ page }}">
+                                <li><a href="?{% change_params page=page %}">
                             {% endif %}
                                 {{ page }}</a></li>
                             {% endif %}
@@ -109,12 +111,12 @@ Gigaland - Articles
                                 <li><a href="?page={{ posts.paginator.num_pages }}">{{ posts.paginator.num_pages }}</a></li>
                             {% endif %}
                             {% if posts.number == posts.paginator.num_pages|add:-3 %}
-                                <li><a href="?page={{ posts.paginator.num_pages }}">{{ posts.paginator.num_pages }}</a></li>
+                                <li><a href="?{% change_params page=posts.paginator.num_pages %} ">{{ posts.paginator.num_pages }}</a></li>
                             {% endif %}
 
                             {% comment %} "Next" button {% endcomment %}
                             {% if posts.has_next %}
-                            <li><a style="color: #8364e2; font-weight: bold;" href="?page={{posts.next_page_number}}">Next</a></li>
+                            <li><a style="color: #8364e2; font-weight: bold;" href="?{% change_params page=posts.next_page_number %}">Next</a></li>
                             {% else %}
                             <li><a>Next</a></li>
                             {% endif %}
