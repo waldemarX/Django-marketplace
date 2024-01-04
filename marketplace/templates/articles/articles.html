@@ -20,9 +20,10 @@ Gigaland - Articles
                         <div class="col-lg-12">
 
                             <div class="items_filter">
-                                <form action="blank.php" class="row form-dark" id="form_quick_search" method="post" name="form_quick_search">
+                                <form action="{% url "articles:search" %}" class="row form-dark" id="form_quick_search" method="get" name="form_quick_search" role="search">
                                     <div class="col text-center">
-                                        <input class="form-control" id="name_1" name="name_1" placeholder="search here..." type="text" /> <a href="#" id="btn-submit"><i class="fa fa-search bg-color-secondary"></i></a>
+                                        <input class="form-control" id="name_1" name="q" placeholder="search here..." type="text" />
+                                        <a href="" id="btn-submit"><i class="fa fa-search bg-color-secondary"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </form>
@@ -129,4 +130,16 @@ Gigaland - Articles
                 </div>
             </section>
 
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Handling the click event on a button link
+        $("#btn-submit").click(function(e) {
+            e.preventDefault();  // Preventing default link behavior
+            $("#form_quick_search").submit();  // Call submit() on the form
+        });
+    });
+</script>
 {% endblock content %}

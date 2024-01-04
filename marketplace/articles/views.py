@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+
+from .utils import q_search
 from .models import Post
 
 
@@ -7,11 +9,15 @@ def articles(request):
     template = 'articles/articles.html'
     page = request.GET.get('page', 1)
     filter_category = request.GET.get('category', None)
+    query = request.GET.get('q', None)
 
     if filter_category:
         posts = Post.objects.select_related('category').filter(is_published=True, category__slug=filter_category).order_by('-pub_date')
+    elif query:
+        posts = q_search(query)
     else:
         posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
+
     paginator = Paginator(posts, per_page=1)
     current_page = paginator.page(page)
 
