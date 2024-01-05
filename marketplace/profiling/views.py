@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Item, Author
+from .models import Item, Author, Collection
 
 
 def profile(request, author_slug):
@@ -15,9 +15,15 @@ def profile(request, author_slug):
     return render(request, template, context)
 
 
-def collection(request):
+def collection(request, collection_slug):
     template = 'profiling/collection.html'
-    return render(request, template)
+    collection_info = Collection.objects.get(slug=collection_slug)
+    collection_items = Item.objects.select_related('collection').filter(collection__slug=collection_slug)
+    context = {
+        'collection': collection_info,
+        'items': collection_items,
+    }
+    return render(request, template, context)
 
 
 def item(request, id):

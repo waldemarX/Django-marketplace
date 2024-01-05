@@ -45,13 +45,13 @@ Gigaland - {{ item_info.title }}
                                         <h6>Collection</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="collection.html">
+                                                <a href="{% url "profiling:collection" item_info.collection.slug %}">
                                                     <img class="lazy" src="images/collections/coll-thumbnail-1.jpg" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="collection.html">{{ item_info.collection }}</a>
+                                                <a href="{% url "profiling:collection" item_info.collection.slug %}">{{ item_info.collection }}</a>
                                             </div>
                                         </div>
                                     </div>
