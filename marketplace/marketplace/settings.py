@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv(find_dotenv())
 SECRET_KEY = getenv('SECRET_KEY')
+DBMS_PASSWORD = getenv('DBMS_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,8 +88,12 @@ WSGI_APPLICATION = 'marketplace.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nft-marketplace',
+        'USER': 'nft-marketplace',
+        'PASSWORD': DBMS_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

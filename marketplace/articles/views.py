@@ -18,7 +18,7 @@ def articles(request):
     else:
         posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
 
-    paginator = Paginator(posts, per_page=3)
+    paginator = Paginator(posts, per_page=6)
     current_page = paginator.page(page)
 
     context = {
