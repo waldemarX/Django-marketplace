@@ -42,7 +42,7 @@ def register(request):
     template = "profiling/register.html"
     context = {
         'dark': True,
-        'subtitle': 'Register'
+        'subtitle': 'Sign in'
     }
     return render(request, template, context)
 

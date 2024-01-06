@@ -102,7 +102,9 @@
                             </li>
                         </ul>
                         <div class="menu_side_area">
-                            <a href="wallet.html" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Connect Wallet</span></a>
+                            <a href="{% url "profiling:login" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Log in</span></a>
+                            <span id="menu-btn"></span>
+                            <a href="{% url "profiling:register" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Sign in</span></a>
                             <span id="menu-btn"></span>
                         </div>
                     </div>
