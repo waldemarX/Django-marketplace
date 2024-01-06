@@ -17,20 +17,34 @@ Gigaland - Log in
 								
 								<div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
 									<div class="box-rounded padding40" data-bgcolor="#ffffff">
-										<h3 class="mb10">Sign In</h3>
-										<p>Login using an existing account or create a new account <a href="{% url "profiling:register" %}">here<span></span></a>.</p>
+										<h3 class="mb10">Log in</h3>
+										<p>Or create a new account <a href="{% url "profiling:register" %}">here<span></span></a>.</p>
 										<form action="{% url "profiling:login" %}" method="post" name="contactForm" id='contact_form' class="form-border" >
 
 											{% csrf_token %}		
 											
+											{% if form.non_field_errors %}
+											<span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.error_messages.invalid_login }}</span>
+											{% endif %}
+
 											<div class="field-set">
+                                                <input type='text' name='username' id='id_username' value="{% if form.username.value %}{{ form.username.value }}{% endif %}" class="form-control" placeholder="username" required>
+                                            </div>
+											
+											 <div class="field-set">
+                                                <input type='password' name='password' id='id_password' class="form-control" placeholder="password" required>
+                                            </div>
+
+
+											{% comment %} <div class="field-set">
                                                 {{ form.username }}
                                             </div>
 											
 											 <div class="field-set">
                                                 {{ form.password }}
                                             </div>
-											
+											 {% endcomment %}
+
 											<div class="field-set">
 												<input type='submit' value='Submit' class="btn btn-main btn-fullwidth color-2" >
 											</div>
@@ -41,7 +55,7 @@ Gigaland - Log in
 
                                         <!-- social icons -->
                                         <ul class="list s3">
-                                            <li>Login with:</li>
+                                            <li>Continue with:</li>
                                             <li><a href="#">Facebook</a></li>
                                             <li><a href="#">Google</a></li>
                                         </ul>
