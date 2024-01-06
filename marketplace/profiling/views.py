@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import Item, Author, Collection
+from .models import Item, User, Collection
 
 
-def profile(request, author_nickname):
+def profile(request, author_username):
     template = "profiling/author.html"
-    author_info = Author.objects.get(nickname=author_nickname)
+    author_info = User.objects.get(nickname=author_username)
     item_info_owner = Item.objects.filter(owner=author_info.id)
     item_info_creator = Item.objects.filter(creator=author_info.id)
     context = {

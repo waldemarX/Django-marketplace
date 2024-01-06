@@ -1,0 +1,2031 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2024-01-02T13:44:47.906Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Anime",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2024-01-02T13:45:23.820Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Abstraction",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2024-01-02T13:45:57.505Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Vladimir Ermakov",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2024-01-02T13:46:21.650Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Vanya Knyazev",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2024-01-02T13:46:36.337Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "Goshka",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2024-01-02T13:47:18.643Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Absract field",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2024-01-02T13:48:56.795Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "Abstract",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2024-01-02T13:49:26.765Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Rock",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2024-01-02T13:49:45.659Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "3",
+            "object_repr": "Rooock",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2024-01-02T13:50:05.937Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "4",
+            "object_repr": "Anime girl",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2024-01-02T13:50:28.390Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "5",
+            "object_repr": "Hands Up!",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2024-01-02T13:51:40.019Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "3",
+            "object_repr": "Rooock",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2024-01-02T13:51:40.038Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "Abstract",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2024-01-02T19:25:49.324Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "1",
+            "object_repr": "Art",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2024-01-02T19:26:00.213Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "2",
+            "object_repr": "Internet",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2024-01-02T19:26:07.052Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "3",
+            "object_repr": "Website",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2024-01-02T19:26:14.021Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "4",
+            "object_repr": "Programming",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2024-01-02T19:26:24.988Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "5",
+            "object_repr": "Print",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2024-01-02T19:26:29.542Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "6",
+            "object_repr": "Music",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2024-01-02T19:26:44.367Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "7",
+            "object_repr": "Design",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2024-01-02T19:26:50.252Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "8",
+            "object_repr": "Marketing",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2024-01-02T19:27:02.310Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "9",
+            "object_repr": "Entertainment",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2024-01-02T19:30:49.771Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "1",
+            "object_repr": "The next big trend in crypto",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2024-01-02T19:32:55.753Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "When the 80/20 Rule Fails: The Downside of Being Effective",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2024-01-02T19:33:02.251Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "10",
+            "object_repr": "History",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2024-01-02T19:33:07.142Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "When the 80/20 Rule Fails: The Downside of Being Effective",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2024-01-02T19:33:26.801Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "11",
+            "object_repr": "Advise",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2024-01-02T19:33:57.860Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "3",
+            "object_repr": "The Ultimate Productivity Hack is Saying No",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2024-01-02T19:35:28.239Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "4",
+            "object_repr": "What is Web3 – level 1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2024-01-02T19:35:56.604Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "5",
+            "object_repr": "Warner Bros. and Paramount Global may merge",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2024-01-02T19:36:04.192Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "4",
+            "object_repr": "What is Web3",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2024-01-02T19:36:37.695Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "6",
+            "object_repr": "The future of a steak",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2024-01-02T19:36:48.100Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "12",
+            "object_repr": "Food",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2024-01-02T19:37:27.458Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "7",
+            "object_repr": "China gaming rules",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2024-01-02T19:37:32.963Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "6",
+            "object_repr": "The future of a steak",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2024-01-02T19:37:39.698Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "5",
+            "object_repr": "Warner Bros. and Paramount Global may merge",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2024-01-02T19:37:44.794Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "4",
+            "object_repr": "What is Web3",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2024-01-02T19:38:20.554Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "2023 top Google searches",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2024-01-02T19:38:50.826Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "9",
+            "object_repr": "Dinosaur coins",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2024-01-02T19:46:24.686Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Tips & Tricks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2024-01-02T19:46:32.478Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "History",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2024-01-02T19:46:37.774Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "Music",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2024-01-02T19:46:48.218Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "4",
+            "object_repr": "Programming",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2024-01-02T19:46:52.942Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "5",
+            "object_repr": "Advise",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2024-01-02T19:47:04.431Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "6",
+            "object_repr": "Crypto",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2024-01-02T19:47:15.094Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "7",
+            "object_repr": "Internet",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2024-01-02T19:47:30.711Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "8",
+            "object_repr": "Games",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2024-01-02T19:50:33.680Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "9",
+            "object_repr": "Food",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2024-01-02T19:51:28.767Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "10",
+            "object_repr": "Business",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.268Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "9",
+            "object_repr": "Dinosaur coins",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.288Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "2023 top Google searches",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.307Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "7",
+            "object_repr": "China gaming rules",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.325Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "6",
+            "object_repr": "The future of a steak",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.343Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "5",
+            "object_repr": "Warner Bros. and Paramount Global may merge",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.360Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "4",
+            "object_repr": "What is Web3",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.378Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "3",
+            "object_repr": "The Ultimate Productivity Hack is Saying No",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.397Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "When the 80/20 Rule Fails: The Downside of Being Effective",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2024-01-02T19:52:16.414Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "1",
+            "object_repr": "The next big trend in crypto",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2024-01-03T08:52:59.831Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "3",
+            "object_repr": "The Ultimate Productivity Hack is Saying No",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2024-01-03T08:55:29.622Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "13",
+            "object_repr": "NFT",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2024-01-03T08:55:45.114Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "11",
+            "object_repr": "NFT",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 62,
+        "fields": {
+            "action_time": "2024-01-03T08:55:49.656Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "10",
+            "object_repr": "NFT will die soon",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 63,
+        "fields": {
+            "action_time": "2024-01-03T11:30:42.089Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "10",
+            "object_repr": "NFT will die soon",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 64,
+        "fields": {
+            "action_time": "2024-01-03T19:41:54.238Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "When the 80/20 Rule Fails: The Downside of Being Effective",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 65,
+        "fields": {
+            "action_time": "2024-01-03T19:42:10.332Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "5",
+            "object_repr": "Advise",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 66,
+        "fields": {
+            "action_time": "2024-01-03T20:39:25.757Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "10",
+            "object_repr": "NFT will die soon",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Highlighted Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 67,
+        "fields": {
+            "action_time": "2024-01-04T13:37:46.226Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "11",
+            "object_repr": "NFT",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 68,
+        "fields": {
+            "action_time": "2024-01-04T13:37:48.420Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "11",
+            "object_repr": "NFT",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 69,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.168Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "10",
+            "object_repr": "Business",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 70,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.186Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "9",
+            "object_repr": "Food",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 71,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.204Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "8",
+            "object_repr": "Games",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 72,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.221Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "7",
+            "object_repr": "Internet",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 73,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.240Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "6",
+            "object_repr": "Crypto",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 74,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.256Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "4",
+            "object_repr": "Programming",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 75,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.274Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "Music",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 76,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.292Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "History",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 77,
+        "fields": {
+            "action_time": "2024-01-04T13:39:21.309Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Tips & Tricks",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 78,
+        "fields": {
+            "action_time": "2024-01-05T10:26:07.208Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "9",
+            "object_repr": "Dinosaur coins",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Text\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 79,
+        "fields": {
+            "action_time": "2024-01-05T13:05:06.134Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Absract field",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"On sale\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 80,
+        "fields": {
+            "action_time": "2024-01-05T13:05:10.836Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Absract field",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"On sale\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 81,
+        "fields": {
+            "action_time": "2024-01-06T10:54:22.162Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Rock",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Collection creator\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 82,
+        "fields": {
+            "action_time": "2024-01-06T10:54:22.173Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Abstraction",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Collection creator\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 83,
+        "fields": {
+            "action_time": "2024-01-06T13:31:25.101Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "Goshka",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 84,
+        "fields": {
+            "action_time": "2024-01-06T13:31:53.777Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Vanya Knyazev",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 85,
+        "fields": {
+            "action_time": "2024-01-06T13:31:59.056Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Vladimir Ermakov",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 86,
+        "fields": {
+            "action_time": "2024-01-06T13:36:49.063Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "lord",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 87,
+        "fields": {
+            "action_time": "2024-01-06T13:45:43.327Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "lord",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 88,
+        "fields": {
+            "action_time": "2024-01-06T13:48:51.082Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Vladimir Ermakov",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banner\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 89,
+        "fields": {
+            "action_time": "2024-01-06T13:49:13.920Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "Goshka",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Banner\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add Author",
+            "content_type": 7,
+            "codename": "add_author"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change Author",
+            "content_type": 7,
+            "codename": "change_author"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete Author",
+            "content_type": 7,
+            "codename": "delete_author"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view Author",
+            "content_type": 7,
+            "codename": "view_author"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add Collection",
+            "content_type": 8,
+            "codename": "add_collection"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change Collection",
+            "content_type": 8,
+            "codename": "change_collection"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete Collection",
+            "content_type": 8,
+            "codename": "delete_collection"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view Collection",
+            "content_type": 8,
+            "codename": "view_collection"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add Item",
+            "content_type": 9,
+            "codename": "add_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change Item",
+            "content_type": 9,
+            "codename": "change_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete Item",
+            "content_type": 9,
+            "codename": "delete_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view Item",
+            "content_type": 9,
+            "codename": "view_item"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add Article",
+            "content_type": 10,
+            "codename": "add_post"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change Article",
+            "content_type": 10,
+            "codename": "change_post"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete Article",
+            "content_type": 10,
+            "codename": "delete_post"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view Article",
+            "content_type": 10,
+            "codename": "view_post"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add Tag",
+            "content_type": 11,
+            "codename": "add_tags"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change Tag",
+            "content_type": 11,
+            "codename": "change_tags"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete Tag",
+            "content_type": 11,
+            "codename": "delete_tags"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view Tag",
+            "content_type": 11,
+            "codename": "view_tags"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add Category",
+            "content_type": 12,
+            "codename": "add_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change Category",
+            "content_type": 12,
+            "codename": "change_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete Category",
+            "content_type": 12,
+            "codename": "delete_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view Category",
+            "content_type": 12,
+            "codename": "view_categories"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$Vxxdd0ncE6kOpS4sHTB0EW$JB8y3FjK960FWm3Xuz/U3rF3ozPOExXtg7UV84zE2Z8=",
+            "last_login": "2024-01-02T13:44:17.414Z",
+            "is_superuser": true,
+            "username": "root",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-01-02T13:34:56.096Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "profiling",
+            "model": "author"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "profiling",
+            "model": "collection"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "profiling",
+            "model": "item"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "articles",
+            "model": "post"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "articles",
+            "model": "tags"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "articles",
+            "model": "categories"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8o2x94mad45rlwbbuo6bvkn22hhaz6bh",
+        "fields": {
+            "session_data": ".eJxVjEsOwiAUAO_C2hCg5efSfc9A3uOBVA0kpV0Z725IutDtzGTeLMCxl3D0tIWV2JVJdvllCPGZ6hD0gHpvPLa6byvykfDTdr40Sq_b2f4NCvQytsKQIu1AW0dZTR6knL10ViC5KScr7CSURpeiJ6OjQTUbYyJ4m6VGYp8vwkQ3Tw:1rKf45:EWSqIPaa9B375TT9vS4Rt6KEtg6M7HNacnfTgLa_uS0",
+            "expire_date": "2024-01-16T13:44:17.457Z"
+        }
+    },
+    {
+        "model": "profiling.item",
+        "pk": 1,
+        "fields": {
+            "title": "Absract field",
+            "image": "item_image/big-1.jpg",
+            "creator": 1,
+            "owner": 2,
+            "collection": 2,
+            "price": "0.50",
+            "on_sale": true
+        }
+    },
+    {
+        "model": "profiling.item",
+        "pk": 2,
+        "fields": {
+            "title": "Abstract",
+            "image": "item_image/big-2.jpg",
+            "creator": 2,
+            "owner": 1,
+            "collection": 2,
+            "price": "0.12",
+            "on_sale": true
+        }
+    },
+    {
+        "model": "profiling.item",
+        "pk": 3,
+        "fields": {
+            "title": "Rooock",
+            "image": "item_image/big-3.jpg",
+            "creator": 3,
+            "owner": 2,
+            "collection": 3,
+            "price": "0.20",
+            "on_sale": true
+        }
+    },
+    {
+        "model": "profiling.item",
+        "pk": 4,
+        "fields": {
+            "title": "Anime girl",
+            "image": "item_image/big-4.jpg",
+            "creator": 1,
+            "owner": 3,
+            "collection": 1,
+            "price": "0.60",
+            "on_sale": true
+        }
+    },
+    {
+        "model": "profiling.item",
+        "pk": 5,
+        "fields": {
+            "title": "Hands Up!",
+            "image": "item_image/big-5.jpg",
+            "creator": 3,
+            "owner": 1,
+            "collection": 3,
+            "price": "0.30",
+            "on_sale": true
+        }
+    },
+    {
+        "model": "profiling.collection",
+        "pk": 1,
+        "fields": {
+            "title": "Anime",
+            "description": "Anime collection",
+            "slug": "anime",
+            "banner": "collections/collection-default.jpg",
+            "creator": 1
+        }
+    },
+    {
+        "model": "profiling.collection",
+        "pk": 2,
+        "fields": {
+            "title": "Abstraction",
+            "description": "Abstract collection",
+            "slug": "abstraction",
+            "banner": "collections/collection-default.jpg",
+            "creator": 3
+        }
+    },
+    {
+        "model": "profiling.collection",
+        "pk": 3,
+        "fields": {
+            "title": "Rock",
+            "description": "Rock collection",
+            "slug": "rock",
+            "banner": "collections/collection-default.jpg",
+            "creator": 2
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 1,
+        "fields": {
+            "title": "The next big trend in crypto",
+            "text": "Quis sunt quis do laboris eiusmod in sint dolore sit pariatur consequat commodo aliqua nulla ad dolor aliquip incididunt voluptate est aliquip adipisicing ea cupidatat nostrud incididunt aliquip dolore. Sed minim nisi duis laborum est labore nisi amet elit adipisicing proident do consectetur dolor labore sit nisi ad proident esse ad velit nisi irure reprehenderit ut et dolor labore veniam quis.\r\nSunt duis laboris ex et quis laborum laborum cillum mollit voluptate culpa consequat ex cupidatat dolor eiusmod proident proident cillum pariatur sint adipisicing in nostrud do dolore consectetur quis incididunt minim consectetur. Exercitation elit proident dolor est id eiusmod dolor dolor incididunt ad voluptate laboris cupidatat est est sint veniam sint officia sint incididunt est sit ut tempor commodo pariatur ut proident et do.\r\n\r\nSed eu in ut sint dolor irure fugiat minim veniam sed ea proident ullamco occaecat irure ut velit eu ullamco fugiat cupidatat dolore fugiat. Lorem ipsum id non deserunt id consequat duis voluptate amet aliqua pariatur laboris officia pariatur veniam velit reprehenderit sint nostrud cupidatat magna eiusmod mollit exercitation pariatur nulla minim laboris dolore aliqua consectetur cillum duis aute consectetur.",
+            "highlighted_text": "Design can be art. Design can be simple. That’s why it’s so complicated. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:30:49.739Z",
+            "author": 3,
+            "category": 6
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 2,
+        "fields": {
+            "title": "When the 80/20 Rule Fails: The Downside of Being Effective",
+            "text": "Audrey Hepburn was an icon.\r\n\r\nRising to fame in the 1950s, she was one of the greatest actresses of her era. In 1953, Hepburn became the first actress to win an Academy Award, a Golden Globe Award, and a BAFTA Award for a single performance: her leading role in the romantic comedy Roman Holiday.\r\n\r\nEven today, over half a century later, she remains one of just 15 people to earn an “EGOT” by winning all four major entertainment awards: Emmy, Grammy, Oscar, and Tony. By the 1960s, she was averaging more than one new film per year and, by everyone’s estimation, she was on a trajectory to be a movie star for decades to come.",
+            "highlighted_text": "",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:32:55.693Z",
+            "author": 1,
+            "category": 1
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 3,
+        "fields": {
+            "title": "The Ultimate Productivity Hack is Saying No",
+            "text": "he ultimate productivity hack is saying no.\r\n\r\nNot doing something will always be faster than doing it. This statement reminds me of the old computer programming saying, “Remember that there is no code faster than no code.”\r\n\r\nThe same philosophy applies in other areas of life. For example, there is no meeting that goes faster than not having a meeting at all.\r\n\r\nThis is not to say you should never attend another meeting, but the truth is that we say yes to many things we don’t actually want to do. There are many meetings held that don’t need to be held. There is a lot of code written that could be deleted.",
+            "highlighted_text": "But if the benefits of saying no are so obvious, then why do we say yes so often?",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:33:57.857Z",
+            "author": 2,
+            "category": 1
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 4,
+        "fields": {
+            "title": "What is Web3",
+            "text": "Web3 is a new decentralized Internet. Decentralized means it doesn’t have one company or organization that controls it. Instead many computers control it. A technology called blockchains connects the computers.\r\n\r\nSome people like Web3. They spend money to make special apps. They run on blockchains. Other people can’t turn them off. People can control their information.\r\n\r\nOther people don’t like Web3. They say that it is only an idea. They say that people will still need servers at big companies. They say that no rules can create problems.",
+            "highlighted_text": "Also, blockchains need a lot of power. This can hurt nature.",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:35:28.237Z",
+            "author": 1,
+            "category": 7
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 5,
+        "fields": {
+            "title": "Warner Bros. and Paramount Global may merge",
+            "text": "wo big companies Warner Brothers Discovery and Paramount Global may merge. When two companies merge, they join together to make one big company.\r\n\r\nThe CEOs talk about it in Manhattan. They talk about making a very big media company. They have lots of movies and TV shows. The bosses meet to decide. But we do not know who will be the boss of the new company. It may be hard. Some people may not like it. There are official rules. They can have an impact on the merger.\r\n\r\nBoth companies have good things. Warner Brothers has its studios.  Paramount has a streaming service called Paramount Plus. We have to wait and see if they can join.",
+            "highlighted_text": "",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:35:56.545Z",
+            "author": 2,
+            "category": 10
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 6,
+        "fields": {
+            "title": "The future of a steak",
+            "text": "Company Micro Harvest is helping with the growing need for more protein.\r\n\r\nThey use tiny living things in a closed space, called a Bioreactor. This is a quick way to make protein. Other ways usually take a long time. Micro Harvest finishes the process in just one day. The protein which they make has a good taste.",
+            "highlighted_text": "The protein can go into different foods, even for pets. Bakers wants to start small, like in a local store or restaurant, and then grow. There are some rules to follow, but the company hopes that it will be possible to make food for people, too.",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:36:37.660Z",
+            "author": 3,
+            "category": 9
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 7,
+        "fields": {
+            "title": "China gaming rules",
+            "text": "China makes new rules for video games. These rules stop people from spending too much money.\r\n\r\nBig game companies like Tencent and NetEase lose a lot of money because of these rules. The rules say that games cannot give gifts for logging in or spending money. Investors worry. The companies lose almost 80 billion dollars. Tencent is one of the big companies. They do not need to change a lot and they follow the rules.\r\n\r\nThe rules also say that games can only let players spend some amount of money. Some rules may help the game industry. It will be easier to approve new games.",
+            "highlighted_text": "",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:37:27.396Z",
+            "author": 3,
+            "category": 8
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 8,
+        "fields": {
+            "title": "2023 top Google searches",
+            "text": "Every year, Google makes a list of top searches. It tells us what information people search on the internet the most.\r\n\r\nIn 2023, people around the world want to know about Hamas. They search for things like ‘war in Israel and Gaza’, ‘what is Hamas’, or  ‘what is happening in Israel’. Other top searches include incidents such as the Titan submersible accident and the Turkey-Syria. The list includes the most important events and people, like Damar Hamlin’s NFL game injury, actor Matthew Perry’s death, and popular figures like Jeremy Renner and Andrew Tate.\r\n\r\nWith movies, ‘Barbie’ and ‘Oppenheimer’ are among the most popular searches.",
+            "highlighted_text": "",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:38:20.550Z",
+            "author": 3,
+            "category": 7
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 9,
+        "fields": {
+            "title": "Dinosaur coins",
+            "text": "The Royal Mint and the Natural History Museum make special coins with dinosaurs.\r\n\r\nThere are three coins with different dinosaurs – tyrannosaurus, stegosaurus, and diplodocus. The coins have pictures by artist Robert Nicholls. Some are colorful. They show dinosaurs in places where they naturally live. Rebecca Morgan from the Royal Mint is happy about these new coins. Maxine Lister from the Natural History Museum likes that the coins have famous dinosaurs.\r\n\r\nThese coins are part of a series which celebrates old animals and dinosaurs. You can get them from the Royal Mint’s website. The price starts at 11 pounds.",
+            "highlighted_text": "",
+            "is_published": true,
+            "image": "post_image/default.jpg",
+            "pub_date": "2024-01-02T19:38:50.823Z",
+            "author": 1,
+            "category": 6
+        }
+    },
+    {
+        "model": "articles.post",
+        "pk": 10,
+        "fields": {
+            "title": "NFT will die soon",
+            "text": "NFT will die soon, and it's not a joke! Be ready for this!",
+            "highlighted_text": "I'm dead ass serious!",
+            "is_published": true,
+            "image": "post_image/news-6.jpg",
+            "pub_date": "2024-01-03T08:55:49.599Z",
+            "author": 2,
+            "category": 11
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 1,
+        "fields": {
+            "category_name": "Tips & Tricks",
+            "slug": "tips&tricks"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 2,
+        "fields": {
+            "category_name": "History",
+            "slug": "history"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 3,
+        "fields": {
+            "category_name": "Music",
+            "slug": "music"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 4,
+        "fields": {
+            "category_name": "Programming",
+            "slug": "programming"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 6,
+        "fields": {
+            "category_name": "Crypto",
+            "slug": "crypto"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 7,
+        "fields": {
+            "category_name": "Internet",
+            "slug": "internet"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 8,
+        "fields": {
+            "category_name": "Games",
+            "slug": "games"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 9,
+        "fields": {
+            "category_name": "Food",
+            "slug": "food"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 10,
+        "fields": {
+            "category_name": "Business",
+            "slug": "business"
+        }
+    },
+    {
+        "model": "articles.categories",
+        "pk": 11,
+        "fields": {
+            "category_name": "NFT",
+            "slug": "nft"
+        }
+    }
+]

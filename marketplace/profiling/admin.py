@@ -1,19 +1,13 @@
 from django.contrib import admin
 
-from .models import Author, Item, Collection
+from .models import User, Item, Collection
 
 
-# admin.site.register(Author)
+# admin.site.register(User)
 # admin.site.register(Item)
-@admin.register(Author)
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
-        'name',
-        'nickname',
-    )
-    list_display_links = ('name',)
-    search_fields = ['name']
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    ...
 
 
 @admin.register(Item)

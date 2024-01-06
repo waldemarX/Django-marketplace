@@ -1,5 +1,5 @@
 from django.db import models
-from profiling.models import Author
+from profiling.models import User
 
 
 class Post(models.Model):
@@ -12,7 +12,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to="post_image", default="post_image/default.jpg")
     pub_date = models.DateTimeField(verbose_name="Publishing date", auto_now_add=True)
     author = models.ForeignKey(
-        Author, on_delete=models.CASCADE, verbose_name="Article author"
+        User, on_delete=models.CASCADE, verbose_name="Article author"
     )
     category = models.ForeignKey(
         "Categories", on_delete=models.CASCADE, default=None, blank=True, null=True

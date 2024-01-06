@@ -1,10 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 import requests
 
 
-class Author(models.Model):
-    name = models.CharField("name", max_length=128)
-    nickname = models.CharField("nickname", max_length=128, unique=True)
+class User(AbstractUser):
     avatar = models.ImageField(
         upload_to="author_avatar", default="author/author-default.jpg"
     )
@@ -13,24 +12,21 @@ class Author(models.Model):
     )
 
     class Meta:
-        verbose_name = "Author"
-        verbose_name_plural = "Authors"
-
-    def __str__(self):
-        return self.name
+        verbose_name = "User"
+        verbose_name_plural = "Users"
 
 
 class Item(models.Model):
     title = models.CharField("title", max_length=128, blank=True, null=True)
     image = models.ImageField(upload_to="item_image")
     creator = models.ForeignKey(
-        "Author",
+        "User",
         on_delete=models.CASCADE,
         related_name="creator",
         verbose_name="creator",
     )
     owner = models.ForeignKey(
-        "Author", on_delete=models.CASCADE,
+        "User", on_delete=models.CASCADE,
         related_name="owner",
         verbose_name="owner"
     )
@@ -68,7 +64,7 @@ class Collection(models.Model):
         default="collections/collection-default.jpg"
     )
     creator = models.ForeignKey(
-        "Author",
+        "User",
         on_delete=models.CASCADE,
         related_name="collection_creator",
         verbose_name="Collection creator",
