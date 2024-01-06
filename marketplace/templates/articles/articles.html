@@ -62,8 +62,11 @@ Gigaland - Articles
                                         <div class="post-text">
                                             <span class="p-tagline">{{ post.category }}</span>
                                             <span class="p-date">{{ post.pub_date|date:"E d Y" }}</span>
-                                            <h4><a href="{% url "articles:article_detail" post.id %}">{{ post.title }}<span></span></a></h4>
-                                            <p>{{ post.text|truncatewords:22 }}</p>
+                                            <h4><a href="{% url "articles:article_detail" post.id %}">
+                                            {% autoescape off %}
+                                            {% if post.headline %}{{ post.headline }}{% else %}{{ post.title }}{% endif %}<span></span></a></h4>
+                                            <p>{% if post.bodyline %}{{ post.bodyline|truncatewords:22 }}{% else %}{{ post.text|truncatewords:22 }}{% endif %}</p>
+                                            {% endautoescape %}
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +82,8 @@ Gigaland - Articles
                         
 
                         <div class="spacer-single"></div>
-                                
+                        
+                        {% if posts.paginator.num_pages > 1 %}
                         <ul class="pagination">
 
                             {% comment %} "Previous" button {% endcomment %}
@@ -130,7 +134,7 @@ Gigaland - Articles
                             {% endif %}
 
                         </ul>
-                        
+                        {% endif %}                        
                         
 
                     </div>
