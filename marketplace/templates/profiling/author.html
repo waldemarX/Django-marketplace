@@ -5,7 +5,7 @@ Gigaland - {{ author_info.name }}
 {% endblock %}
 {% block content %}
     <!-- section begin -->
-    <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url(images/author_single/author_banner.jpg) top">
+    <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url({% if 'author_single/author_banner.jpg' == author_info.banner %}{% static "images/author_single/author_banner.jpg" %}{% else %}{{ author_info.banner.url }}{% endif %}) top">
             
     </section>
     <!-- section close -->

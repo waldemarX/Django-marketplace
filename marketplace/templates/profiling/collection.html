@@ -5,7 +5,7 @@ Gigaland - {{ collection }}
 {% endblock %}
 {% block content %}       
             <!-- section begin -->
-            <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url(images/background/4.jpg) top">
+            <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url({% if 'collections/collection-default.jpg' == collection.banner %}{% static "images/collections/collection-default.jpg" %}{% else %}{{ collection.banner.url }}{% endif %}) top">
                     
             </section>
             <!-- section close -->
