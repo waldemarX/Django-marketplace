@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .models import Item, Author, Collection
 
 
-def profile(request, author_slug):
+def profile(request, author_nickname):
     template = "profiling/author.html"
-    author_info = Author.objects.get(nickname=author_slug)
+    author_info = Author.objects.get(nickname=author_nickname)
     item_info_owner = Item.objects.filter(owner=author_info.id)
     item_info_creator = Item.objects.filter(creator=author_info.id)
     context = {
@@ -34,5 +34,30 @@ def item(request, id):
     item_info = Item.objects.select_related("owner").get(id=id)
     context = {
         "item_info": item_info,
+    }
+    return render(request, template, context)
+
+
+def register(request):
+    template = "profiling/register.html"
+    context = {
+        'dark': True,
+        'subtitle': 'Register'
+    }
+    return render(request, template, context)
+
+
+def login(request):
+    template = "profiling/login.html"
+    context = {
+        'dark': True
+    }
+    return render(request, template, context)
+
+
+def logout(request):
+    template = "profiling/register.html"
+    context = {
+        ...
     }
     return render(request, template, context)
