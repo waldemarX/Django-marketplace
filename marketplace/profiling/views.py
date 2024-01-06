@@ -18,10 +18,11 @@ def profile(request, author_slug):
 def collection(request, collection_slug):
     template = 'profiling/collection.html'
     collection_info = Collection.objects.get(slug=collection_slug)
-    collection_items = Item.objects.select_related('collection').filter(collection__slug=collection_slug)
+    collection_items = Item.objects.select_related('creator', 'owner').filter(collection__slug=collection_slug)
     context = {
         'collection': collection_info,
         'items': collection_items,
+        'dark': False,
     }
     return render(request, template, context)
 

@@ -57,6 +57,12 @@ class Collection(models.Model):
     title = models.CharField('title', max_length=128)
     description = models.TextField('description', blank=True, null=True)
     slug = models.CharField('slug', max_length=128)
+    creator = models.ForeignKey(
+        "Author",
+        on_delete=models.CASCADE,
+        related_name="collection_creator",
+        verbose_name="Collection creator",
+    )
 
     class Meta:
         verbose_name = 'Collection'

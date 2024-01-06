@@ -43,6 +43,10 @@ class ItemAdmin(admin.ModelAdmin):
 class CollectionAdmin(admin.ModelAdmin):
     list_display = (
         'title',
+        'creator'
+    )
+    list_editable = (
+        'creator',
     )
     search_fields = ['title']
     prepopulated_fields = {'slug': ('title',)}
