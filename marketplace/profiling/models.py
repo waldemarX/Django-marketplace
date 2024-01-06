@@ -15,6 +15,9 @@ class User(AbstractUser):
         verbose_name = "User"
         verbose_name_plural = "Users"
 
+    def __str__(self):
+        return self.username
+
 
 class Item(models.Model):
     title = models.CharField("title", max_length=128, blank=True, null=True)

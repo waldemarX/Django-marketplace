@@ -12,25 +12,27 @@ Gigaland - Log in
 								<div class="col-lg-5 text-light wow fadeInRight" data-wow-delay=".5s">
                                 <div class="spacer-10"></div>
                                 <h1>Create, sell or collect digital items.</h1>
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+                                <p class="lead"></p>
                             </div>
 								
 								<div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
 									<div class="box-rounded padding40" data-bgcolor="#ffffff">
 										<h3 class="mb10">Sign In</h3>
 										<p>Login using an existing account or create a new account <a href="{% url "profiling:register" %}">here<span></span></a>.</p>
-										<form name="contactForm" id='contact_form' class="form-border" method="post" action="">
+										<form action="{% url "profiling:login" %}" method="post" name="contactForm" id='contact_form' class="form-border" >
 
-                                            <div class="field-set">
-                                                <input type='text' name='email' id='email' class="form-control" placeholder="username">
+											{% csrf_token %}		
+											
+											<div class="field-set">
+                                                {{ form.username }}
                                             </div>
 											
 											 <div class="field-set">
-                                                <input type='password' name='password' id='password' class="form-control" placeholder="password">
+                                                {{ form.password }}
                                             </div>
 											
 											<div class="field-set">
-												<input type='submit' id='send_message' value='Submit' class="btn btn-main btn-fullwidth color-2">
+												<input type='submit' value='Submit' class="btn btn-main btn-fullwidth color-2" >
 											</div>
 											
 											<div class="clearfix"></div>
