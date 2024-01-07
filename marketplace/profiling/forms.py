@@ -1,11 +1,14 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from django.contrib.auth.forms import (
+    AuthenticationForm,
+    UsernameField,
+    UserCreationForm,
+)
 
 from .models import User
 
 
 class UserLoginForm(AuthenticationForm):
-
     username = UsernameField(
         label="",
     )
@@ -30,9 +33,19 @@ class UserLoginForm(AuthenticationForm):
     #     }),
     # )
     error_messages = {
-        'invalid_login': ("Please enter a correct username and password."),
-        'inactive': ("This account is inactive."),
+        "invalid_login": ("Please enter a correct username and password."),
+        "inactive": ("This account is inactive."),
     }
 
     class Meta:
         model = User
+
+
+class UserRegisterForm(UserCreationForm):
+    first_name = forms.CharField()
+    username = UsernameField()
+    email = forms.CharField()
+
+    class Meta:
+        model = User
+        fields = ("first_name", "username", "email", "password2")

@@ -102,10 +102,17 @@
                             </li>
                         </ul>
                         <div class="menu_side_area">
+                            {% if not user.is_authenticated %}
                             <a href="{% url "profiling:login" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Log in</span></a>
                             <span id="menu-btn"></span>
-                            <a href="{% url "profiling:register" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Sign in</span></a>
+                            {% else %}
+                            <a href="{% url "profiling:logout" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Log out</span></a>
                             <span id="menu-btn"></span>
+                            {% endif %}
+                            {% if user.is_admin or user.is_staff %}
+                            <a href="{% url 'admin:index' %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Admin</span></a>
+                            <span id="menu-btn"></span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

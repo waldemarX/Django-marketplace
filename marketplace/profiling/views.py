@@ -1,8 +1,8 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .forms import UserLoginForm
+from .forms import UserLoginForm, UserRegisterForm
 from django.contrib import auth
 
 from .models import Item, User, Collection
@@ -46,9 +46,20 @@ def item(request, id):
 
 def register(request):
     template = "profiling/register.html"
+    if request.method == 'POST':
+        form = UserRegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('main:index'))
+    else:
+        form = UserRegisterForm()
+
     context = {
+        'form': form,
         'dark': True,
-        'subtitle': 'Sign in'
+        'subtitle': 'Sign in',
     }
     return render(request, template, context)
 
@@ -76,8 +87,5 @@ def login(request):
 
 
 def logout(request):
-    template = "profiling/register.html"
-    context = {
-        ...
-    }
-    return render(request, template, context)
+    auth.logout(request)
+    return redirect(reverse('main:index'))

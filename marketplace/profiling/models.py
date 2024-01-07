@@ -48,14 +48,14 @@ class Item(models.Model):
         verbose_name = "Item"
         verbose_name_plural = "Items"
 
-    def __str__(self):
-        return self.title
-
     def price_in_usd(self):
         actual_price = requests.get(
             "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD"
         ).json()["USD"]
         return f"{float(self.price) * actual_price:.2f}"
+
+    def __str__(self):
+        return self.title
 
 
 class Collection(models.Model):
