@@ -21,7 +21,11 @@ Gigaland - Log in
 										<p>Or create a new account <a href="{% url "profiling:register" %}">here<span></span></a>.</p>
 										<form action="{% url "profiling:login" %}" method="post" name="contactForm" id='contact_form' class="form-border" >
 
-											{% csrf_token %}		
+											{% csrf_token %}
+											
+											{% if request.GET.next %}
+												<input type="hidden" name="next" value={{ request.GET.next }}>
+											{% endif %}
 											
 											{% if form.non_field_errors %}
 											<span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.error_messages.invalid_login }}</span>
