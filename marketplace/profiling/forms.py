@@ -3,6 +3,7 @@ from django.contrib.auth.forms import (
     AuthenticationForm,
     UsernameField,
     UserCreationForm,
+    UserChangeForm
 )
 
 from .models import User
@@ -42,10 +43,28 @@ class UserLoginForm(AuthenticationForm):
 
 
 class UserRegisterForm(UserCreationForm):
-    first_name = forms.CharField()
+    first_name = forms.CharField(required=False)
     username = UsernameField()
     email = forms.CharField()
 
     class Meta:
         model = User
         fields = ("first_name", "username", "email", "password2")
+
+
+class UserEditProfile(UserChangeForm):
+    avatar = forms.ImageField(required=False)
+    banner = forms.ImageField(required=False)
+    first_name = forms.CharField(required=False)
+    username = UsernameField()
+    email = forms.CharField()
+
+    class Meta:
+        model = User
+        fields = (
+            'avatar',
+            'banner',
+            'first_name',
+            'username',
+            'email',
+        )

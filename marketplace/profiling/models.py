@@ -5,10 +5,10 @@ import requests
 
 class User(AbstractUser):
     avatar = models.ImageField(
-        upload_to="author_avatar", default="author/author-default.jpg"
+        upload_to="user_avatar", default="user_avatar/default.jpg"
     )
     banner = models.ImageField(
-        upload_to="author_banner", default="author_single/author_banner.jpg"
+        upload_to="user_banner", default="user_banner/default.jpg"
     )
 
     class Meta:

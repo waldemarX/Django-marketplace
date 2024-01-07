@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-Gigaland - {{ author_info.name }}
+Gigaland - {{ author_info.username }}
 {% endblock %}
 {% block content %}
     <!-- section begin -->
-    <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url({% if 'author_single/author_banner.jpg' == author_info.banner %}{% static "images/author_single/author_banner.jpg" %}{% else %}{{ author_info.banner.url }}{% endif %}) top">
+    <section id="profile_banner" aria-label="section" class="text-light" data-bgimage="url({{ author_info.banner.url }}) top">
             
     </section>
     <!-- section close -->
@@ -22,8 +22,8 @@ Gigaland - {{ author_info.name }}
                                 <i class="fa fa-check"></i>
                                 <div class="profile_name">
                                     <h4>
-                                        {{ author_info.name }}                                                
-                                        <span class="profile_username">@{{ author_info.nickname }}</span>
+                                        {{ author_info.first_name }}                                                
+                                        <span class="profile_username">@{{ author_info.username }}</span>
                                         <span id="wallet" class="profile_wallet">DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME</span>
                                         <button id="btn_copy" title="Copy Text">Copy</button>
                                     </h4>
