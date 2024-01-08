@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load static %}
+{% load posts_tags %}
+
+{% block title %}
+Gigaland - Articles
+{% endblock %}
+
+{% block content %}
+            
+            <!-- section begin -->
+            {% include "includes/subheader.html" %}
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 offset-lg-1">
+                            <form action="" id="form-create-item" class="form-border" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="field-set">
+                                    <h5>Upload file</h5>
+
+                                    <div class="d-create-file">
+                                        <p id="file_name">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</p>
+                                        <label for="id_image"><input type="button" id="get_file" class="btn-main" value="Browse" onclick="triggerFileInput()"></label>
+                                        <input type="file" id="id_image" name="image" style="display: none;" accept="image/*" onchange="previewImage()">
+                                    </div>
+
+                                    <div class="spacer-40"></div>
+
+                                    <h5>Select method</h5>
+                                    <div class="de_tab tab_methods">
+                                        <ul class="de_nav">
+                                            <li class="active"><span><i class="fa fa-tag"></i>Fixed price</span>
+                                            </li>
+                                            <li><span><i class="fa fa-hourglass-1"></i>Timed auction</span>
+                                            </li>
+                                            <li><span><i class="fa fa-users"></i>Open for bids</span>
+                                            </li>
+                                        </ul>
+
+                                        <div class="de_tab_content">
+
+                                            <div id="tab_opt_1">
+                                                <h5>Price</h5>
+                                                <input type="text" name="price" id="id_price" class="form-control" placeholder="enter price for one item (ETH)" />
+                                            </div>
+
+                                            <div id="tab_opt_2">
+                                                <h5>Minimum bid</h5>
+                                                <input type="text" name="item_price_bid" id="item_price_bid" class="form-control" placeholder="enter minimum bid" />
+
+                                                <div class="spacer-20"></div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h5>Starting date</h5>
+                                                        <input type="date" name="bid_starting_date" id="bid_starting_date" class="form-control" min="1997-01-01" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h5>Expiration date</h5>
+                                                        <input type="date" name="bid_expiration_date" id="bid_expiration_date" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="tab_opt_3">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+                                    <div class="switch-with-title">
+                                        <h5><i class="fa fa- fa-unlock-alt id-color-2 icon_padlock"></i>Unlock once purchased</h5>
+                                        <div class="de-switch">
+                                          <input type="checkbox" id="switch-unlock" class="checkbox">
+                                          <label for="switch-unlock"></label>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p class="p-info">Unlock content after successful transaction.</p>
+
+                                        <div class="hide-content">
+                                            <input type="text" name="item_unlock" id="item_unlock" class="form-control" placeholder="Access key, code to redeem or link to a file..." />             
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Choose collection</h5>
+                                    <p class="p-info">This is the collection where your item will appear.</p>
+
+                                    <div id="item_collection" class="dropdown fullwidth mb20">
+                                        <a href="#" class="btn-selector">Select Collection</a>
+                                        <ul>
+                                            <li><span>Abstraction</span></li>
+                                            <li><span>Patternlicious</span></li>
+                                            <li><span>Skecthify</span></li>
+                                            <li><span>Cartoonism</span></li>
+                                            <li><span>Virtuland</span></li>
+                                            <li><span>Papercut</span></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Title</h5>
+                                    <input type="text" name="title" id="id_title" class="form-control" placeholder="e.g. 'Crypto Funk" />
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Description</h5>
+                                    <textarea data-autoresize name="description" id="id_description" class="form-control" placeholder="e.g. 'This is very limited item'"></textarea>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Royalties</h5>
+                                    <input type="text" name="item_royalties" id="item_royalties" class="form-control" placeholder="suggested: 0, 10%, 20%, 30%. Maximum is 70%" />
+
+                                    <div class="spacer-single"></div>
+
+                                    <input type="button" id="submit" class="btn-main" value="Create Item">
+                                    <div class="spacer-single"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                                <h5>Preview item</h5>
+                                <div class="nft__item">
+                                    <div class="de_countdown" data-year="2022" data-month="4" data-day="16" data-hour="8"></div>
+                                    <div class="author_list_pp">
+                                        <a href="#">                                    
+                                            <img class="lazy" src="{{ user.avatar.url }}" alt="">
+                                            <i class="fa fa-check"></i>
+                                        </a>
+                                    </div>
+                                    <div class="nft__item_wrap">
+                                            <img src="{% static "images/items/default_item.jpg" %}" id="get_file_2" class="lazy nft__item_preview" alt="">
+                                    </div>
+                                    <div class="nft__item_info">
+                                        <a href="#">
+                                            <h4>Wonderful picture</h4>
+                                        </a>
+                                        <div class="nft__item_click">
+                                        <span></span>
+                                    </div>
+                                    <div class="nft__item_price">
+                                            0.08 ETH<span>1/20</span>
+                                        </div>
+                                        <div class="nft__item_action">
+                                            <a href="#">Place a bid</a>
+                                        </div>
+                                        <div class="nft__item_like">
+                                            <i class="fa fa-heart"></i><span>50</span>
+                                        </div>                            
+                                    </div> 
+                                </div>
+                            </div>                                         
+                    </div>
+                </div>
+            </section>
+
+
+  <script>
+    function previewImage() {
+      // Получаем элементы
+      var fileInput = document.getElementById('id_image');
+      var preview = document.getElementsByClassName("nft__item_wrap")[0];
+      var fileNameParagraph = document.getElementById('file_name');
+
+      fileNameParagraph.textContent = "Selected file: " + fileInput.files[0].name;
+
+      // Очищаем превью перед каждым новым выбором файла
+      preview.innerHTML = '';
+
+      // Проверяем, выбран ли файл
+      if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+
+        // Событие загрузки изображения
+        reader.onload = function(e) {
+          // Создаем элемент изображения и добавляем его в превью
+          var image = document.createElement('img');
+          image.src = e.target.result;
+          image.classList.add('lazy', 'nft__item_preview');
+          preview.appendChild(image);
+        };
+
+        // Чтение данных из файла как Data URL
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    }
+    function triggerFileInput() {
+        // Получаем элемент <input type="file">
+        var fileInput = document.getElementById('id_image');
+  
+        // Вызываем событие click для элемента <input type="file">
+        fileInput.click();
+      }
+  </script>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load posts_tags %}
+
+{% block title %}
+Gigaland - Articles
+{% endblock %}
+
+{% block content %}
+            <!-- section begin -->
+            {% include "includes/subheader.html" %}
+            <!-- section close -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-md-6 offset-md-3">
+                            <p>Choose "Single" if you want your collectible to be one of a kind or "Multiple" if you want to sell one collectible times</p>
+                            <a href="{% url "profiling:create_single" %}" class="opt-create">
+                                <img src="{% static "images/misc/coll-single.png" %}" alt="">
+                                <h3>Single</h3>
+                            </a>
+                            <a href="create-multiple.html" class="opt-create">
+                                <img src="{% static "images/misc/coll-multiple.png" %}" alt="">
+                                <h3>Multiple</h3>
+                            </a>
+                        </div>                             
+                    </div>
+                </div>
+            </section>
+{% endblock content %}

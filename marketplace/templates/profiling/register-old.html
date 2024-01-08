@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Gigaland - Sign in
+{% endblock %}
+{% block content %}
+            <!-- section begin -->
+            {% include "includes/subheader.html" %}
+            <!-- section close -->
+            
+            <section aria-label="section">
+                <div class="container">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<h3>Don't have an account? Register now.</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+							
+							<div class="spacer-10"></div>
+							
+							<form action="{% url "profiling:register" %}" name="contactForm" id='contact_form' class="form-border" method="post" >
+
+                                {% csrf_token %}
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <label for="id_first_name">Name:</label>
+                                            <input type='text' name='first_name' id='id_first_name' class="form-control"
+                                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <label for="id_username">Choose a Username:</label>
+                                            <input type='text' name='username' id='id_username' class="form-control"
+                                            value="{% if form.username.value %}{{ form.username.value }}{% endif %}" required>
+                                            {% if form.username.errors %}
+                                            <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.username.errors }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <label for="id_email">Email Address:</label>
+                                            <input type='text' name='email' id='id_email' class="form-control"
+                                            value="{% if form.email.value %}{{ form.email.value }}{% endif %}" autocomplete="email" required>
+                                            {% if form.email.errors %}
+                                            <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.email.errors }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <label for="id_password1">Password:</label>
+                                            <input type='password' name='password1' id='id_password1' class="form-control" autocomplete="new-password">
+                                            <label for="id_password2">Confirm Password:</label>
+                                            <input type='password' name='password2' id='id_password2' class="form-control" autocomplete="new-password">
+                                            {% if form.password2.errors %}
+                                            <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.password2.errors }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+
+                                        <div id='submit' class="pull-left">
+                                            <input type='submit' class="btn btn-main color-2">
+                                        </div>
+
+                                        <div id='mail_success' class='success'>Your message has been sent successfully.</div>
+                                        <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
+                                        <div class="clearfix"></div>
+
+                                    </div>
+
+                                </div>
+                            </form>
+							
+						</div>
+                    </div>
+				</div>
+            </section>
+			
+			
+        </div>
+{% endblock %}

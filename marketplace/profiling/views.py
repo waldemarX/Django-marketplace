@@ -72,6 +72,26 @@ def item(request, id):
     return render(request, template, context)
 
 
+@login_required
+def create_options(request):
+    template = "profiling/create-options.html"
+    context = {
+        "dark": True,
+        "subtitle": "Create Collectible"
+    }
+    return render(request, template, context)
+
+
+@login_required
+def create_single(request):
+    template = "profiling/create-single.html"
+    context = {
+        "dark": True,
+        "subtitle": "Create Single Collectible"
+    }
+    return render(request, template, context)
+
+
 def register(request):
     template = "profiling/register.html"
     if request.method == "POST":
