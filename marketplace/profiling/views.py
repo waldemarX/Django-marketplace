@@ -2,7 +2,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .forms import SingleItemCreationForm, UserEditProfile, UserLoginForm, UserRegisterForm
+from .forms import (
+    SingleItemCreationForm,
+    UserEditProfile,
+    UserLoginForm,
+    UserRegisterForm,
+)
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
@@ -18,7 +23,7 @@ def profile(request, author_username):
         "author_info": author_info,
         "item_info_owner": item_info_owner,
         "item_info_creator": item_info_creator,
-        "dark": False
+        "dark": False,
     }
     return render(request, template, context)
 
@@ -27,7 +32,9 @@ def profile(request, author_username):
 def edit_profile(request):
     template = "profiling/edit-profile.html"
     if request.method == "POST":
-        form = UserEditProfile(data=request.POST, instance=request.user, files=request.FILES)
+        form = UserEditProfile(
+            data=request.POST, instance=request.user, files=request.FILES
+        )
         if form.is_valid():
             form.save()
             messages.success(request, "Changes successfully applied!")
@@ -38,15 +45,13 @@ def edit_profile(request):
                 "Email": request.POST["email"],
             }
             errors = [err[0] for err in errors.items() if not err[1]]
-            messages.error(request, f"Please, do not leave required fields blank -> {', '.join(errors)}")
+            messages.error(
+                request,
+                f"Please, do not leave required fields blank -> {', '.join(errors)}",
+            )
     else:
         form = UserEditProfile(instance=request.user)
-    context = {
-        'form': form,
-        "dark": True,
-        "subtitle": 'Edit Profile'
-
-    }
+    context = {"form": form, "dark": True, "subtitle": "Edit Profile"}
     return render(request, template, context)
 
 
@@ -76,10 +81,7 @@ def item(request, id):
 @login_required
 def create_options(request):
     template = "profiling/create-options.html"
-    context = {
-        "dark": True,
-        "subtitle": "Create Collectible"
-    }
+    context = {"dark": True, "subtitle": "Create Collectible"}
     return render(request, template, context)
 
 
@@ -100,18 +102,18 @@ def create_single(request):
             errors = {
                 "Image": request.POST["image"],
                 "Title": request.POST["title"],
-                "Price": request.POST["price"]
+                "Price": request.POST["price"],
             }
             errors = [err[0] for err in errors.items() if not err[1]]
-            messages.error(request, f"Please, do not leave required fields blank -> {', '.join(errors)}")
+            messages.error(
+                request,
+                f"Please, do not leave required fields blank -> {', '.join(errors)}",
+            )
 
     else:
         form = SingleItemCreationForm()
 
-    context = {
-        "dark": True,
-        "subtitle": "Create Single Collectible"
-    }
+    context = {"dark": True, "subtitle": "Create Single Collectible"}
     return render(request, template, context)
 
 
@@ -147,8 +149,8 @@ def login(request):
             if user:
                 auth.login(request, user)
 
-                if request.POST.get('next', None):
-                    return HttpResponseRedirect(request.POST.get('next'))
+                if request.POST.get("next", None):
+                    return HttpResponseRedirect(request.POST.get("next"))
                 else:
                     return HttpResponseRedirect(reverse("main:index"))
     else:

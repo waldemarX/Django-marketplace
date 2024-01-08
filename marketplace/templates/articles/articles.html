@@ -18,6 +18,9 @@ Gigaland - Articles
                     <div class="row">
 
                         <div class="col-lg-12">
+                            <div style="float: right; right: 0px;">
+                                <a href="{% url "articles:write_article" %}" class="btn-main"><i class="fa fa-plus"></i><span> Write your article</span></a>
+                            </div>
 
                             <div class="items_filter">
                                 <form action="{% url "articles:search" %}" class="row form-dark" id="form_quick_search" method="get" name="form_quick_search" role="search">

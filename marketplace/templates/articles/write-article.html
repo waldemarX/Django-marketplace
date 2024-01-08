@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% load posts_tags %}
+
+{% block title %}
+Gigaland - Articles
+{% endblock %}
+
+{% block content %}
+            
+            <!-- section begin -->
+            {% include "includes/subheader.html" %}
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 offset-lg-1">
+                            <form action="" id="form-create-item" class="form-border" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                {% if messages %}
+                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                    </symbol>
+                                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </symbol>
+                                </svg>
+                                {% for msg in messages %}
+                                {% if msg.tags == "success" %}
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                                            <div>
+                                            {{ msg }}
+                                            </div>
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                            <div>
+                                            {{ msg }}
+                                            </div>
+                                    </div>
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+
+                                <div class="field-set">
+                                    <h5>Article image</h5>
+
+                                    <div class="d-create-file">
+                                        <p id="file_name">PNG, JPG Max 200mb. 16:10 Recomended</p>
+                                        <label for="id_image"><input type="button" id="get_file" class="btn-main" value="Browse" onclick="triggerFileInput()"></label>
+                                        <input type="file" id="id_image" name="image" style="display: none;" accept="image/*" onchange="previewImageArticle()">
+                                    </div>
+
+                                    <div class="spacer-40"></div>
+                                    <h5>Title</h5>
+                                    <input type="text" name="title" id="id_title" class="form-control" placeholder="e.g. 'Best way to make money from NFT'" value="{% if form.title.value %}{{ form.title.value }}{% endif %}" />
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Text</h5>
+                                    <textarea data-autoresize name="text" id="id_text" class="form-control" placeholder="e.g. 'This is very secret information..'" value="{% if form.text.value %}{{ form.text.value }}{% endif %}"></textarea>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Choose category</h5>
+                                    <p class="p-info">This will make it easier to find your article</p>
+
+                                    <div id="item_collection" class="dropdown fullwidth mb20">
+                                        <a href="#" class="btn-selector" id="collectionDropdownBtn">Select Category</a>
+                                        <ul>
+                                            {% for category in categories %}
+                                            <li data-value="{{ category }}"><span>{{ category }}</span></li>
+                                            {% endfor %}
+                                        </ul>
+                                        <input type="hidden" id="id_category" name="category">
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+
+                                    <div class="spacer-single"></div>
+
+                                    <input type="submit" id="submit" class="btn-main" value="Post">
+                                    <div class="spacer-single"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        
+                            <div class="col-lg-4 col-md-6 mb30">
+                                <h5>Preview:</h5>
+                                <div class="bloglist item">
+                                        <div class="post-content">
+                                            <div class="post-image">
+                                               <img alt="" src="{% static "images/posts/news-5.jpg" %}" class="lazy">
+                                            </div>
+                                            <div class="post-text">
+                                                <span class="p-tagline" id="category_display">category</span>
+                                                <span class="p-date">{{ date|date:"E d Y" }}</span>
+                                                <h4 id="title_display">Title<span></span></h4>
+                                                <p id="text_display">Post text</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                                                                
+                    </div>
+                </div>
+            </section>
+
+{% endblock content %}

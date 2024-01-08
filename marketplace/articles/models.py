@@ -3,7 +3,7 @@ from profiling.models import User
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=256, verbose_name="Title")
+    title = models.CharField(max_length=113, verbose_name="Title")
     text = models.TextField(verbose_name="Text")
     highlighted_text = models.TextField(
         verbose_name="Highlighted Text", blank=True, null=True
@@ -27,8 +27,8 @@ class Post(models.Model):
 
 
 class Categories(models.Model):
-    category_name = models.CharField(max_length=50)
-    slug = models.CharField(max_length=50, default="category")
+    category_name = models.CharField('Category', max_length=50)
+    slug = models.CharField('slug', max_length=50)
 
     class Meta:
         verbose_name = "Category"

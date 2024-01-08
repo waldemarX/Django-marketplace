@@ -45,7 +45,7 @@ class Item(models.Model):
     price = models.DecimalField(
         "price_eth", default=0.00, max_digits=4, decimal_places=2
     )
-    on_sale = models.BooleanField(default=False)
+    on_sale = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Item"

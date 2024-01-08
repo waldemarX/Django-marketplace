@@ -25,7 +25,4 @@ class CategoriesAdmin(admin.ModelAdmin):
         'slug'
     )
     search_fields = ['category_name']
-    prepopulated_fields = {"slug": ["category_name"]}
-    list_editable = (
-        'slug',
-    )
+    prepopulated_fields = {'slug': ('category_name',)}

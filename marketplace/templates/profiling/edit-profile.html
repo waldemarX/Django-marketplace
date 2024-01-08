@@ -100,7 +100,12 @@ Gigaland - Edit profile
 
                                                 <h5>Profile image <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 400 x 400. Max size: 50MB. Click the image to upload."></i></h5>
 
-                                                <label for="id_avatar"><img src="{{ user.avatar.url }}" id="click_profile_img" class="d-profile-img-edit img-fluid" alt=""></label>
+                                                <label for="id_avatar" class="img-container" onmouseover="darkenImage()" onmouseout="lightenImage()">
+                                                    <img src="{{ user.avatar.url }}" id="click_profile_img" class="d-profile-img-edit img-fluid" alt="">
+                                                    <div class="overlay" style="opacity: 0;">
+                                                        <i class="fa fa-camera"></i>
+                                                    </div>
+                                                </label>
                                                 <input type="file" id="id_avatar" name="avatar" style="display: none;">
                                                 {% if form.avatar.errors %}
                                                 <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.avatar.errors }}</span>
@@ -111,7 +116,12 @@ Gigaland - Edit profile
                                                 <h5>Profile banner <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 1500 x 500. Max size: 50MB. Click the image to upload."></i></h5>
                                                 
 
-                                                <label for="id_banner"><img src="{{ user.banner.url }}" id="click_banner_img" class="d-banner-img-edit img-fluid" alt=""></label>
+                                                <label for="id_banner" class="img-container1" onmouseover="darkenImage1()" onmouseout="lightenImage1()">
+                                                    <img src="{{ user.banner.url }}" id="click_banner_img" class="d-banner-img-edit img-fluid" alt="">
+                                                    <div class="overlay-banner" style="opacity: 0;">
+                                                        <i class="fa fa-camera"></i>
+                                                    </div>
+                                                </label>
                                                 <input type="file" id="id_banner" name="banner" style="display: none;">
                                                 
                                                 {% if form.banner.errors %}
