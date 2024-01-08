@@ -6,7 +6,7 @@ from django.contrib.auth.forms import (
     UserChangeForm
 )
 
-from .models import User
+from .models import User, Item
 
 
 class UserLoginForm(AuthenticationForm):
@@ -68,3 +68,14 @@ class UserEditProfile(UserChangeForm):
             'username',
             'email',
         )
+
+
+class SingleItemCreationForm(forms.ModelForm):
+    image = forms.ImageField()
+    title = forms.CharField()
+    price = forms.DecimalField()
+
+    class Meta:
+        model = Item
+        fields = ("image", "title", "price")
+        exclude = ('creator', 'owner',)

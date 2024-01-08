@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .forms import UserEditProfile, UserLoginForm, UserRegisterForm
+from .forms import SingleItemCreationForm, UserEditProfile, UserLoginForm, UserRegisterForm
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
@@ -18,6 +18,7 @@ def profile(request, author_username):
         "author_info": author_info,
         "item_info_owner": item_info_owner,
         "item_info_creator": item_info_creator,
+        "dark": False
     }
     return render(request, template, context)
 
@@ -32,12 +33,12 @@ def edit_profile(request):
             messages.success(request, "Changes successfully applied!")
             return HttpResponseRedirect(reverse("profiling:edit_profile"))
         else:
-            if not request.POST["email"] and not request.POST["username"]:
-                messages.error(request, "Please, do not leave required fields blank -> Username, Email Address")
-            elif not request.POST["email"]:
-                messages.error(request, "Please, do not leave required fields blank -> Email Address")
-            elif not request.POST["username"]:
-                messages.error(request, "Please, do not leave required fields blank -> Username")
+            errors = {
+                "Username": request.POST["username"],
+                "Email": request.POST["email"],
+            }
+            errors = [err[0] for err in errors.items() if not err[1]]
+            messages.error(request, f"Please, do not leave required fields blank -> {', '.join(errors)}")
     else:
         form = UserEditProfile(instance=request.user)
     context = {
@@ -85,6 +86,28 @@ def create_options(request):
 @login_required
 def create_single(request):
     template = "profiling/create-single.html"
+
+    if request.method == "POST":
+        form = SingleItemCreationForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.creator = request.user
+            item.owner = request.user
+            item.save()
+            messages.success(request, "Changes successfully applied!")
+            return HttpResponseRedirect(reverse("profiling:create_single"))
+        else:
+            errors = {
+                "Image": request.POST["image"],
+                "Title": request.POST["title"],
+                "Price": request.POST["price"]
+            }
+            errors = [err[0] for err in errors.items() if not err[1]]
+            messages.error(request, f"Please, do not leave required fields blank -> {', '.join(errors)}")
+
+    else:
+        form = SingleItemCreationForm()
+
     context = {
         "dark": True,
         "subtitle": "Create Single Collectible"

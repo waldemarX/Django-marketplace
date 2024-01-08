@@ -29,7 +29,8 @@ class Item(models.Model):
         verbose_name="creator",
     )
     owner = models.ForeignKey(
-        "User", on_delete=models.CASCADE,
+        "User",
+        on_delete=models.CASCADE,
         related_name="owner",
         verbose_name="owner"
     )
@@ -38,6 +39,8 @@ class Item(models.Model):
         verbose_name="collection",
         related_name="collection",
         on_delete=models.CASCADE,
+        blank=True,
+        null=True
     )
     price = models.DecimalField(
         "price_eth", default=0.00, max_digits=4, decimal_places=2
