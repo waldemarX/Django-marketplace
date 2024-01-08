@@ -307,28 +307,4 @@ Gigaland - {{ author_info.username }}
             </div>
         </div>
     </section>
-    
-<script>
-    function copyText(element) {
-        var copyText = document.querySelector(element);
-        var button = document.querySelector(".btn_copy");
-
-        navigator.clipboard.writeText(copyText.textContent).then(function () {
-            var originalText = button.textContent;
-            button.textContent = 'Copied!';
-            button.classList.add('clicked');
-
-            setTimeout(function () {
-                button.textContent = originalText;
-                button.classList.remove('clicked');
-            }, 750);
-        }).catch(function () {
-            button.textContent = 'Error';
-        });
-    }
-
-    document.querySelector(".btn_copy").addEventListener("click", function () {
-        copyText(".profile_wallet");
-    });
-</script>
 {% endblock content %}
