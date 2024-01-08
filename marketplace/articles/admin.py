@@ -16,6 +16,7 @@ class PostAdmin(admin.ModelAdmin):
         'category',
         'is_published'
     )
+    list_filter = ('pub_date',)
 
 
 @admin.register(Categories)

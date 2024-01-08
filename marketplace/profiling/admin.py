@@ -7,7 +7,19 @@ from .models import User, Item, Collection
 # admin.site.register(Item)
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    ...
+    list_display = (
+        'username',
+        'first_name',
+        'email',
+        'last_login',
+        'date_joined',
+        'is_staff',
+    )
+    list_editable = (
+        'is_staff',
+    )
+    search_fields = ['id', 'username']
+    list_filter = ('date_joined', 'last_login')
 
 
 @admin.register(Item)
@@ -26,6 +38,7 @@ class ItemAdmin(admin.ModelAdmin):
         'on_sale',
         'creator',
         'owner',
+        'collection'
     )
     search_fields = ['title']
     list_filter = ('on_sale',)

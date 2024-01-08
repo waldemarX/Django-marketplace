@@ -74,6 +74,7 @@ def item(request, id):
     item_info = Item.objects.select_related("owner").get(id=id)
     context = {
         "item_info": item_info,
+        "dark": False
     }
     return render(request, template, context)
 
