@@ -130,11 +130,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const categoryInput = document.getElementById('id_category');
 	const collectionDropdownBtn = document.getElementById('collectionDropdownBtn');
 
-	const wordLimit = 5;
+	const wordLimit = 22;
 
 	titleInput.addEventListener('input', function() {
-		titleDisplay.textContent = this.value;
-	});
+        titleDisplay.textContent = this.value.length > 0 ? this.value : "Title";
+    });
 
 	textInput.addEventListener('input', function() {
 		const originalText = this.value.trim();
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			const truncatedText = words.slice(0, wordLimit).join(' ') + '...';
 			textDisplay.textContent = truncatedText;
 		} else {
-			textDisplay.textContent = originalText;
+			textDisplay.textContent = originalText.length > 0 ? this.value : "Text";
 		}
 	});
 

@@ -60,7 +60,7 @@ Gigaland - Articles
 
                                     <div class="spacer-40"></div>
                                     <h5>Title</h5>
-                                    <input type="text" name="title" id="id_title" class="form-control" placeholder="e.g. 'Best way to make money from NFT'" value="{% if form.title.value %}{{ form.title.value }}{% endif %}" />
+                                    <input type="text" name="title" id="id_title" class="form-control" maxlength="113" placeholder="e.g. 'Best way to make money from NFT'" value="{% if form.title.value %}{{ form.title.value }}{% endif %}" />
 
                                     <div class="spacer-20"></div>
 
@@ -105,7 +105,7 @@ Gigaland - Articles
                                                 <span class="p-tagline" id="category_display">category</span>
                                                 <span class="p-date">{{ date|date:"E d Y" }}</span>
                                                 <h4 id="title_display">Title<span></span></h4>
-                                                <p id="text_display">Post text</p>
+                                                <p id="text_display">Text</p>
                                             </div>
                                         </div>
                                     </div>
