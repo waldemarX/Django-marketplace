@@ -8,30 +8,26 @@ $(document).ready(function() {
 });
 
 // for author.html
-function copyText(element) {
-    var copyText = document.querySelector(element);
-    var button = document.querySelector(".btn_copy");
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#btn_copy_profile').addEventListener('click', function () {
+        var walletText = document.querySelector('.profile_wallet').innerText;
+        
+        navigator.clipboard.writeText(walletText).then(function () {
+            var button = document.querySelector('#btn_copy_profile');
+            var originalText = button.textContent;
 
-    navigator.clipboard.writeText(copyText.textContent).then(function () {
-        var originalText = button.textContent;
-        button.textContent = 'Copied!';
-        button.classList.add('clicked');
+            button.textContent = 'Copied!';
+            button.classList.add('clicked');
 
-        setTimeout(function () {
-            button.textContent = originalText;
-            button.classList.remove('clicked');
-        }, 750);
-    }).catch(function () {
-        button.textContent = 'Error';
+            setTimeout(function () {
+                button.textContent = originalText;
+                button.classList.remove('clicked');
+            }, 750);
+        }).catch(function () {
+            console.error('Unable to copy text to clipboard');
+        });
     });
-}
-
-var doc = document.querySelector(".btn_copy")
-if (doc) {
-    addEventListener("click", function () {
-        copyText(".profile_wallet");
-    });
-}
+});
 
 // for create-single.html
 function previewImage() {

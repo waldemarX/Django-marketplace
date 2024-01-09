@@ -18,6 +18,10 @@
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+.overlay {
+    border-radius: 100%;
 }
 
 .overlay i,
@@ -25,3 +29,35 @@
     color: white;
     font-size: 24px;
 }
+
+.btn_copy_profile {
+    position: absolute;
+    font-size: 12px;
+    padding: 4px 10px;
+    line-height: 1em;
+    border: solid 1px #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    outline: none;
+    transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.btn_copy_profile.clicked {
+    animation: borderAnimation 1s ease;
+    background-color: #8364e2;
+}
+
+@keyframes borderAnimation {
+    0% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #8364e2;
+      color: #ffffff;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }

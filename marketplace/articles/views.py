@@ -11,42 +11,47 @@ from .forms import ArticleCreationForm
 
 
 def articles(request):
-    template = 'articles/articles.html'
-    page = request.GET.get('page', 1)
-    filter_category = request.GET.get('category', None)
-    query = request.GET.get('q', None)
+    template = "articles/articles.html"
+    page = request.GET.get("page", 1)
+    filter_category = request.GET.get("category", None)
+    query = request.GET.get("q", None)
 
     if filter_category:
-        posts = Post.objects.select_related('category').filter(is_published=True, category__slug=filter_category).order_by('-pub_date')
+        posts = (
+            Post.objects.select_related("category")
+            .filter(is_published=True, category__slug=filter_category)
+            .order_by("-pub_date")
+        )
     elif query:
         posts = q_search(query)
     else:
-        posts = Post.objects.select_related('category').filter(is_published=True).order_by('-pub_date')
+        posts = (
+            Post.objects.select_related("category")
+            .filter(is_published=True)
+            .order_by("-pub_date")
+        )
 
     paginator = Paginator(posts, per_page=6)
     current_page = paginator.page(page)
 
     context = {
-        'posts': current_page,
-        'subtitle': 'Articles',
-        'dark': True,
+        "posts": current_page,
+        "subtitle": "Articles",
+        "dark": True,
     }
     return render(request, template, context)
 
 
 def article_detail(request, article_id):
-    template = 'articles/article-detail.html'
-    post_details = Post.objects.get(pk=article_id)
-    context = {
-        'post': post_details,
-        'subtitle': post_details.title,
-        'dark': True
-    }
+    template = "articles/article-detail.html"
+    post_details = Post.objects.select_related("author").get(pk=article_id)
+    context = {"post": post_details, "subtitle": post_details.title, "dark": True}
     return render(request, template, context)
 
 
+@login_required
 def write_article(request):
-    template = 'articles/write-article.html'
+    template = "articles/write-article.html"
 
     categories = Categories.objects.all()
 
@@ -55,7 +60,7 @@ def write_article(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            category_name = request.POST['category']
+            category_name = request.POST["category"]
             category = Categories.objects.get(category_name=category_name)
             post.category = category
             post.save()
@@ -78,9 +83,9 @@ def write_article(request):
 
     date = timezone.now()
     context = {
-        'categories': categories,
-        'subtitle': 'Write your article',
-        'date': date,
-        'dark': True
+        "categories": categories,
+        "subtitle": "Write your article",
+        "date": date,
+        "dark": True,
     }
     return render(request, template, context)

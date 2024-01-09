@@ -18,13 +18,13 @@ Gigaland - {{ post.title }}
                                 <img alt="" src="{{ post.image.url }}" class="img-fullwidth rounded">
 
                                 <div class="post-text">
-                                    <p>{{post.text}}</p>
+                                    <p style="font-size: 19px; color: black;">{{ post.text }}</p>
 
-                                    <blockquote>{{post.highlighted_text}}</blockquote>
+                                    <blockquote>{{ post.highlighted_text }}</blockquote>
 
                                     
 
-                                    <span class="post-date">April 1, 2018</span>
+                                    <span class="post-date">{{ post.pub_date|date:"E d Y" }}</span>
                                     <span class="post-comment">1</span>
                                     <span class="post-like">181</span>
 
@@ -153,10 +153,9 @@ Gigaland - {{ post.title }}
                             </div>
 
                             <div class="widget widget-text">
-                                <h4>About Us</h4>
+                                <h4>Author</h4>
                                 <div class="small-border"></div>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                                sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                                <span class="profile_username"><a href="{% url "profiling:profile" post.author.username %}">@{{ post.author }}</a></span>
                             </div>
                             <div class="widget widget_tags">
                                 <h4>Category</h4>

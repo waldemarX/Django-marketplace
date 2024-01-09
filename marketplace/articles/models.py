@@ -27,8 +27,8 @@ class Post(models.Model):
 
 
 class Categories(models.Model):
-    category_name = models.CharField('Category', max_length=50)
-    slug = models.CharField('slug', max_length=50)
+    category_name = models.CharField("Category", max_length=50)
+    slug = models.CharField("slug", max_length=50)
 
     class Meta:
         verbose_name = "Category"
