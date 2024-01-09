@@ -4,6 +4,7 @@ from django.urls import reverse
 
 from .forms import (
     SingleItemCreationForm,
+    SingleItemEditForm,
     UserEditProfile,
     UserLoginForm,
     UserRegisterForm,
@@ -12,6 +13,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Item, User, Collection
+from .utils import error_messages
 
 
 def profile(request, author_username):
@@ -40,14 +42,10 @@ def edit_profile(request):
             messages.success(request, "Changes successfully applied!")
             return HttpResponseRedirect(reverse("profiling:edit_profile"))
         else:
-            errors = {
-                "Username": request.POST["username"],
-                "Email": request.POST["email"],
-            }
-            errors = [err[0] for err in errors.items() if not err[1]]
-            messages.error(
+            error_messages(
                 request,
-                f"Please, do not leave required fields blank -> {', '.join(errors)}",
+                "username",
+                "email"
             )
     else:
         form = UserEditProfile(instance=request.user)
@@ -97,18 +95,14 @@ def create_single(request):
             item.creator = request.user
             item.owner = request.user
             item.save()
-            messages.success(request, "Changes successfully applied!")
-            return HttpResponseRedirect(reverse("profiling:create_single"))
+            messages.success(request, "Item successfully created!")
+            return HttpResponseRedirect(reverse("profiling:item", args=[item.id]))
         else:
-            errors = {
-                "Image": request.POST["image"],
-                "Title": request.POST["title"],
-                "Price": request.POST["price"],
-            }
-            errors = [err[0] for err in errors.items() if not err[1]]
-            messages.error(
+            error_messages(
                 request,
-                f"Please, do not leave required fields blank -> {', '.join(errors)}",
+                "Image",
+                "Title",
+                "Price"
             )
 
     else:
@@ -116,6 +110,42 @@ def create_single(request):
 
     context = {"dark": True, "subtitle": "Create Single Collectible"}
     return render(request, template, context)
+
+
+@login_required
+def edit_item(request, id):
+    template = "profiling/edit-item.html"
+    item = Item.objects.select_related("owner").get(id=id)
+
+    if request.user != item.owner:
+        messages.error(request, "You cannot change an item that is not yours.")
+        return HttpResponseRedirect(reverse("main:index"))
+
+    if request.method == "POST":
+        form = SingleItemEditForm(data=request.POST, instance=item, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Item successfully edited!")
+            return redirect(request.META["HTTP_REFERER"])
+            # return HttpResponseRedirect(reverse('profiling:edit_item', args=[item.id]))
+        else:
+            error_messages(
+                request,
+                "Title",
+                "Price"
+            )
+    else:
+        form = SingleItemEditForm()
+
+    context = {"dark": True, 'item': item, "subtitle": "Edit Item"}
+    return render(request, template, context)
+
+
+@login_required
+def delete_item(request, id):
+    item = Item.objects.get(id=id)
+    item.delete()
+    return HttpResponseRedirect(reverse("profiling:profile", args=[request.user.username]))
 
 
 def register(request):
@@ -150,7 +180,8 @@ def login(request):
             if user:
                 auth.login(request, user)
 
-                if request.POST.get("next", None):
+                redirect_page = request.POST.get("next", None)
+                if redirect_page and redirect_page != reverse('profiling:logout'):
                     return HttpResponseRedirect(request.POST.get("next"))
                 else:
                     return HttpResponseRedirect(reverse("main:index"))

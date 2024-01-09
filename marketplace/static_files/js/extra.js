@@ -9,7 +9,8 @@ $(document).ready(function() {
 
 // for author.html
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#btn_copy_profile').addEventListener('click', function () {
+	if (document.getElementById('#btn_copy_profile')) {
+		document.querySelector('#btn_copy_profile').addEventListener('click', function () {
         var walletText = document.querySelector('.profile_wallet').innerText;
         
         navigator.clipboard.writeText(walletText).then(function () {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Unable to copy text to clipboard');
         });
     });
+	}
 });
 
 // for create-single.html

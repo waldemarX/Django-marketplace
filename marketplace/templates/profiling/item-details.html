@@ -285,6 +285,12 @@ Gigaland - {{ item_info.title }}
                                 <h6>Price</h6>
                                 <div class="nft-item-price"><img src="{% static "images/misc/ethereum.svg" %}" alt=""><span>{{ item_info.price }}</span>(${{ item_info.price_in_dlr }})</div>
 
+                                {% if user.is_authenticated and item_info.owner == user %}
+                                <a href="{% url "profiling:edit_item" item_info.id %}" class="btn-main btn-lg btn-light">
+                                    Edit
+                                  </a>
+
+                                {% else %}
                                 <!-- Button trigger modal -->
                                 <a href="#" class="btn-main btn-lg" data-bs-toggle="modal" data-bs-target="#buy_now">
                                   Buy Now
@@ -293,6 +299,7 @@ Gigaland - {{ item_info.title }}
                                 <a href="#" class="btn-main btn-lg btn-light" data-bs-toggle="modal" data-bs-target="#place_a_bid">
                                   Place a Bid
                                 </a>
+                                {% endif %}
                                 
                             </div>
                                 
