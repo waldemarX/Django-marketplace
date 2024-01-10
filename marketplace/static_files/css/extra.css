@@ -61,3 +61,8 @@
       border-color: transparent;
     }
   }
+
+
+#like1 .like_is_active {
+  color: red;
+}

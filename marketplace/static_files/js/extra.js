@@ -130,29 +130,32 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 	const wordLimit = 22;
 
-	titleInput.addEventListener('input', function() {
-        titleDisplay.textContent = this.value.length > 0 ? this.value : "Title";
-    });
+    if (titleInput) {
 
-	textInput.addEventListener('input', function() {
-		const originalText = this.value.trim();
-		const words = originalText.split(' ');
-
-		if (words.length > wordLimit) {
-			const truncatedText = words.slice(0, wordLimit).join(' ') + '...';
-			textDisplay.textContent = truncatedText;
-		} else {
-			textDisplay.textContent = originalText.length > 0 ? this.value : "Text";
-		}
-	});
-
-	document.getElementById('item_collection').addEventListener('click', function(e) {
-		if (e.target.tagName === 'SPAN') {
-			const selectedCategory = e.target.textContent;
-			categoryDisplay.textContent = selectedCategory;
-			categoryInput.value = selectedCategory;
-		}
-	});
+        titleInput.addEventListener('input', function() {
+            titleDisplay.textContent = this.value.length > 0 ? this.value : "Title";
+        });
+    
+        textInput.addEventListener('input', function() {
+            const originalText = this.value.trim();
+            const words = originalText.split(' ');
+    
+            if (words.length > wordLimit) {
+                const truncatedText = words.slice(0, wordLimit).join(' ') + '...';
+                textDisplay.textContent = truncatedText;
+            } else {
+                textDisplay.textContent = originalText.length > 0 ? this.value : "Text";
+            }
+        });
+    
+        document.getElementById('item_collection').addEventListener('click', function(e) {
+            if (e.target.tagName === 'SPAN') {
+                const selectedCategory = e.target.textContent;
+                categoryDisplay.textContent = selectedCategory;
+                categoryInput.value = selectedCategory;
+            }
+        });
+    };
 });
 
 // for edit-profile.html

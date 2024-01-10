@@ -30,6 +30,9 @@ def like(request):
                         event.save()
                         item.likes -= 1
                         item.save(update_fields=['likes'])
+
+                        return JsonResponse({'status': 'success', 'likes': item.likes, 'event': 'dislike'})
+
                     else:
                         event = Events(event="Like", user=request.user, object=item)
                         event.save()
@@ -45,8 +48,20 @@ def like(request):
                 item.likes += 1
                 item.save(update_fields=['likes'])
 
-            return JsonResponse({'status': 'success', 'likes': item.likes})
+            return JsonResponse({'status': 'success', 'likes': item.likes, 'event': 'like'})
 
         except Item.DoesNotExist:
 
             return JsonResponse({'status': 'error', 'message': 'Post not found'})
+
+
+def check_if_like(request):
+    item_id = request.GET.get('item_id', None)
+    item = Item.objects.get(id=item_id)
+    event = Events.objects.filter(user=request.user, object=item)
+    if event.exists():
+        event = event.last()
+        if event.event == "Like":
+            return JsonResponse({'is_like': True})
+        else:
+            return JsonResponse({'is_like': False})
