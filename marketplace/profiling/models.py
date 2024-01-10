@@ -46,6 +46,7 @@ class Item(models.Model):
         "price_eth", default=0.00, max_digits=4, decimal_places=2
     )
     on_sale = models.BooleanField(default=True)
+    likes = models.PositiveIntegerField(verbose_name="likes", default=0)
 
     class Meta:
         verbose_name = "Item"

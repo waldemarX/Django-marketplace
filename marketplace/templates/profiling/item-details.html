@@ -21,7 +21,12 @@ Gigaland - {{ item_info.title }}
                                 <div class="item_info_counts">
                                     <div class="item_info_type"><i class="fa fa-image"></i>Art</div>
                                     <div class="item_info_views"><i class="fa fa-eye"></i>250</div>
-                                    <div class="item_info_like"><i class="fa fa-heart"></i>18</div>
+                                    <div class="item_info_like">
+                                        <a href="{% url "main:like" %}" class="item_like" data-item-id="{{ item_info.id }}">
+                                            {% csrf_token %}
+                                            <i class="fa fa-heart"></i><span id="likes_counter">{{ item_info.likes }}</span>
+                                        </a>
+                                    </div>
                                 </div>
                                 {% if item_info.collection %}
                                 <p>{{ item_info.collection.description }}</p>
