@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
 from profiling.models import Item
+from .models import Events
 
 
 def index(request):
@@ -18,8 +19,34 @@ def like(request):
             data = json.loads(request.body)
             item_id = data.get('item_id')
             item = Item.objects.get(id=item_id)
-            item.likes += 1
-            item.save(update_fields=['likes'])
+
+            # If event from user is exists - like counter -= 1
+            try:
+                event = Events.objects.filter(user=request.user, object=item)
+                if event.exists():
+                    event = event.last()
+                    if event.event == "Like":
+                        event = Events(event="Dislike", user=request.user, object=item)
+                        event.save()
+                        item.likes -= 1
+                        item.save(update_fields=['likes'])
+                    else:
+                        event = Events(event="Like", user=request.user, object=item)
+                        event.save()
+                        item.likes += 1
+                        item.save(update_fields=['likes'])
+                else:
+                    raise Events.DoesNotExist
+
+            # If event from user is not exists - like counter += 1
+            except Events.DoesNotExist:
+                event = Events(event="Like", user=request.user, object=item)
+                event.save()
+                item.likes += 1
+                item.save(update_fields=['likes'])
+
             return JsonResponse({'status': 'success', 'likes': item.likes})
+
         except Item.DoesNotExist:
+
             return JsonResponse({'status': 'error', 'message': 'Post not found'})
