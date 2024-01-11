@@ -42,17 +42,17 @@ def add_event_like_or_dislike(item, session_key=None, user=None):
             event = event.last()
             if event.event == "like":
                 event = Events(event="dislike", user=user, session_key=session_key, object=item)
+                item.likes -= 1
             else:
                 event = Events(event="like", user=user, session_key=session_key, object=item)
+                item.likes += 1
         else:
             raise Events.DoesNotExist
     except Events.DoesNotExist:
         event = Events(event="like", user=user, session_key=session_key, object=item)
-    event.save()
-    if event.event == "like":
         item.likes += 1
-    if event.event == "dislike":
-        item.likes -= 1
+
+    event.save()
     item.save(update_fields=['likes'])
     return JsonResponse(
             {
