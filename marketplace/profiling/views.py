@@ -13,7 +13,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Item, User, Collection
-from .utils import error_messages
+from .utils import error_messages, check_if_like
 
 
 def profile(request, author_username):
@@ -70,8 +70,10 @@ def collection(request, collection_slug):
 def item(request, id):
     template = "profiling/item-details.html"
     item_info = Item.objects.select_related("owner").get(id=id)
+    is_like = check_if_like(request, item_info)
     context = {
         "item_info": item_info,
+        'is_like': is_like,
         "dark": False
     }
     return render(request, template, context)

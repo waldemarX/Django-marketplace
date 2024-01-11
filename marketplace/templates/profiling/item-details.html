@@ -24,7 +24,7 @@ Gigaland - {{ item_info.title }}
                                     <div class="item_info_like">
                                         <a href="{% url "main:like" %}" class="item_like" data-item-id="{{ item_info.id }}" id="like1">
                                             {% csrf_token %}
-                                            <i class="fa fa-heart" id="like"></i><span id="likes_counter">{{ item_info.likes }}</span>
+                                            <i class="fa fa-heart {% if is_like %} like_is_active {% endif %}" id="like"></i><span id="likes_counter">{{ item_info.likes }}</span>
                                         </a>
                                     </div>
                                 </div>

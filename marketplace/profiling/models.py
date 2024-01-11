@@ -58,6 +58,7 @@ class Item(models.Model):
         ).json()["USD"]
         return f"{float(self.price) * actual_price:.2f}"
 
+
     def __str__(self):
         return self.title
 
