@@ -24,9 +24,9 @@ def check_item_for_like(request, session_key=None):
         item = Item.objects.get(id=item_id)
 
         if session_key:
-            return add_event_like_or_dislike(request, item, session_key)
+            return add_event_like_or_dislike(item, session_key=session_key)
         else:
-            return add_event_like_or_dislike(request, item)
+            return add_event_like_or_dislike(item, user=request.user)
 
     except Item.DoesNotExist:
         return JsonResponse({
@@ -35,49 +35,19 @@ def check_item_for_like(request, session_key=None):
             })
 
 
-# def add_event_for_like(request, item, session_key=None,):
-#     try:
-#         event = Events.objects.filter(session_key=session_key, object=item, user=request.user)
-#         if event.exists():
-#             event = event.last()
-#             if event.event == "like":
-#                 event = Events(event="dislike", user=request.user, session_key=session_key, object=item)
-#             else:
-#                 event = Events(event="like", user=request.user, session_key=session_key, object=item)
-#         else:
-#             raise Events.DoesNotExist
-#     except Events.DoesNotExist:
-#         event = Events(event="like", user=request.user, session_key=session_key, object=item)
-
-
-def add_event_like_or_dislike(request, item, session_key=None):
+def add_event_like_or_dislike(item, session_key=None, user=None):
     try:
-        if session_key:
-            event = Events.objects.filter(session_key=session_key, object=item)
-            if event.exists():
-                event = event.last()
-                if event.event == "like":
-                    event = Events(event="dislike", session_key=session_key, object=item)
-                else:
-                    event = Events(event="like", session_key=session_key, object=item)
+        event = Events.objects.filter(session_key=session_key, object=item, user=user)
+        if event.exists():
+            event = event.last()
+            if event.event == "like":
+                event = Events(event="dislike", user=user, session_key=session_key, object=item)
             else:
-                raise Events.DoesNotExist
+                event = Events(event="like", user=user, session_key=session_key, object=item)
         else:
-            event = Events.objects.filter(user=request.user, object=item)
-            if event.exists():
-                event = event.last()
-                if event.event == "like":
-                    event = Events(event="dislike", user=request.user, object=item)
-                else:
-                    event = Events(event="like", user=request.user, object=item)
-            else:
-                raise Events.DoesNotExist
+            raise Events.DoesNotExist
     except Events.DoesNotExist:
-        if session_key:
-            event = Events(event="like", session_key=session_key, object=item)
-        else:
-            event = Events(event="like", user=request.user, object=item)
-
+        event = Events(event="like", user=user, session_key=session_key, object=item)
     event.save()
     if event.event == "like":
         item.likes += 1
@@ -93,25 +63,21 @@ def add_event_like_or_dislike(request, item, session_key=None):
     )
 
 
-def check_if_like(request, item):
-    if request.user.is_authenticated:
-        event = Events.objects.filter(user=request.user, object=item)
-        if event.exists():
-            event = event.last()
-            if event.event == "like":
-                return True
-            else:
-                return False
+def check_last_event(item, user=None, session_key=None):
+    event = Events.objects.filter(session_key=session_key, object=item, user=user)
+    if event.exists():
+        event = event.last()
+        if event.event == "like":
+            return True
         else:
             return False
     else:
+        return False
+
+
+def check_if_like(request, item):
+    if request.user.is_authenticated:
+        return check_last_event(item, user=request.user)
+    else:
         session_key = get_session_key(request)
-        event = Events.objects.filter(session_key=session_key, object=item)
-        if event.exists():
-            event = event.last()
-            if event.event == "like":
-                return True
-            else:
-                return False
-        else:
-            return False
+        return check_last_event(item, session_key=session_key)
