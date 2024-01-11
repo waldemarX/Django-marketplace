@@ -13,7 +13,8 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Item, User, Collection
-from .utils import error_messages, check_if_like
+from main.utils import check_if_like
+from .utils import error_messages
 
 
 def profile(request, author_username):
