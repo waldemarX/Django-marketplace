@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
+from main.models import Events
+
 from .forms import (
     SingleItemCreationForm,
     SingleItemEditForm,
@@ -158,7 +160,14 @@ def register(request):
         if form.is_valid():
             form.save()
             user = form.instance
+
+            session_key = request.session.session_key
+
             auth.login(request, user)
+
+            if session_key:
+                Events.objects.filter(session_key=session_key).update(user=user, session_key=None)
+
             return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserRegisterForm()
@@ -180,8 +189,14 @@ def login(request):
             username = request.POST["username"]
             password = request.POST["password"]
             user = auth.authenticate(request, username=username, password=password)
+
+            session_key = request.session.session_key
+
             if user:
                 auth.login(request, user)
+
+                if session_key:
+                    Events.objects.filter(session_key=session_key).update(user=user, session_key=None)
 
                 redirect_page = request.POST.get("next", None)
                 if redirect_page and redirect_page != reverse('profiling:logout'):
