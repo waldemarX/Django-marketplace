@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 import requests
 
 
@@ -14,6 +15,9 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "User"
         verbose_name_plural = "Users"
+
+    def get_absolute_url(self):
+        return reverse("profiling:profile", args=[self.username])
 
     def __str__(self):
         return self.username
@@ -58,6 +62,8 @@ class Item(models.Model):
         ).json()["USD"]
         return f"{float(self.price) * actual_price:.2f}"
 
+    def get_absolute_url(self):
+        return reverse("profiling:item", args=[self.pk])
 
     def __str__(self):
         return self.title

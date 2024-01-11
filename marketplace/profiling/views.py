@@ -45,11 +45,7 @@ def edit_profile(request):
             messages.success(request, "Changes successfully applied!")
             return HttpResponseRedirect(reverse("profiling:edit_profile"))
         else:
-            error_messages(
-                request,
-                "username",
-                "email"
-            )
+            error_messages(request, "username", "email")
     else:
         form = UserEditProfile(instance=request.user)
     context = {"form": form, "dark": True, "subtitle": "Edit Profile"}
@@ -74,11 +70,7 @@ def item(request, id):
     template = "profiling/item-details.html"
     item_info = Item.objects.select_related("owner").get(id=id)
     is_like = check_if_like(request, item_info)
-    context = {
-        "item_info": item_info,
-        'is_like': is_like,
-        "dark": False
-    }
+    context = {"item_info": item_info, "is_like": is_like, "dark": False}
     return render(request, template, context)
 
 
@@ -101,14 +93,11 @@ def create_single(request):
             item.owner = request.user
             item.save()
             messages.success(request, "Item successfully created!")
-            return HttpResponseRedirect(reverse("profiling:item", args=[item.id]))
-        else:
-            error_messages(
-                request,
-                "Image",
-                "Title",
-                "Price"
+            return HttpResponseRedirect(
+                reverse("profiling:item", args=[item.id])
             )
+        else:
+            error_messages(request, "Image", "Title", "Price")
 
     else:
         form = SingleItemCreationForm()
@@ -127,22 +116,19 @@ def edit_item(request, id):
         return HttpResponseRedirect(reverse("main:index"))
 
     if request.method == "POST":
-        form = SingleItemEditForm(data=request.POST, instance=item, files=request.FILES)
+        form = SingleItemEditForm(
+            data=request.POST, instance=item, files=request.FILES
+        )
         if form.is_valid():
             form.save()
             messages.success(request, "Item successfully edited!")
             return redirect(request.META["HTTP_REFERER"])
-            # return HttpResponseRedirect(reverse('profiling:edit_item', args=[item.id]))
         else:
-            error_messages(
-                request,
-                "Title",
-                "Price"
-            )
+            error_messages(request, "Title", "Price")
     else:
         form = SingleItemEditForm()
 
-    context = {"dark": True, 'item': item, "subtitle": "Edit Item"}
+    context = {"dark": True, "item": item, "subtitle": "Edit Item"}
     return render(request, template, context)
 
 
@@ -150,7 +136,9 @@ def edit_item(request, id):
 def delete_item(request, id):
     item = Item.objects.get(id=id)
     item.delete()
-    return HttpResponseRedirect(reverse("profiling:profile", args=[request.user.username]))
+    return HttpResponseRedirect(
+        reverse("profiling:profile", args=[request.user.username])
+    )
 
 
 def register(request):
@@ -166,7 +154,9 @@ def register(request):
             auth.login(request, user)
 
             if session_key:
-                Events.objects.filter(session_key=session_key).update(user=user, session_key=None)
+                Events.objects.filter(session_key=session_key).update(
+                    user=user, session_key=None
+                )
 
             return HttpResponseRedirect(reverse("main:index"))
     else:
@@ -188,7 +178,9 @@ def login(request):
         if form.is_valid():
             username = request.POST["username"]
             password = request.POST["password"]
-            user = auth.authenticate(request, username=username, password=password)
+            user = auth.authenticate(
+                request, username=username, password=password
+            )
 
             session_key = request.session.session_key
 
@@ -196,10 +188,14 @@ def login(request):
                 auth.login(request, user)
 
                 if session_key:
-                    Events.objects.filter(session_key=session_key).update(user=user, session_key=None)
+                    Events.objects.filter(session_key=session_key).update(
+                        user=user, session_key=None
+                    )
 
                 redirect_page = request.POST.get("next", None)
-                if redirect_page and redirect_page != reverse('profiling:logout'):
+                if redirect_page and redirect_page != reverse(
+                    "profiling:logout"
+                ):
                     return HttpResponseRedirect(request.POST.get("next"))
                 else:
                     return HttpResponseRedirect(reverse("main:index"))

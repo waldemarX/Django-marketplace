@@ -29,42 +29,60 @@ def check_item_for_like(request, session_key=None):
             return add_event_like_or_dislike(item, user=request.user)
 
     except Item.DoesNotExist:
-        return JsonResponse({
-            "status": "error",
-            "message": "Item not found",
-            })
+        return JsonResponse(
+            {
+                "status": "error",
+                "message": "Item not found",
+            }
+        )
 
 
 def add_event_like_or_dislike(item, session_key=None, user=None):
     try:
-        event = Events.objects.filter(session_key=session_key, object=item, user=user)
+        event = Events.objects.filter(
+            session_key=session_key, object=item, user=user
+        )
         if event.exists():
             event = event.last()
             if event.event == "like":
-                event = Events(event="dislike", user=user, session_key=session_key, object=item)
+                event = Events(
+                    event="dislike",
+                    user=user,
+                    session_key=session_key,
+                    object=item,
+                )
                 item.likes -= 1
             else:
-                event = Events(event="like", user=user, session_key=session_key, object=item)
+                event = Events(
+                    event="like",
+                    user=user,
+                    session_key=session_key,
+                    object=item,
+                )
                 item.likes += 1
         else:
             raise Events.DoesNotExist
     except Events.DoesNotExist:
-        event = Events(event="like", user=user, session_key=session_key, object=item)
+        event = Events(
+            event="like", user=user, session_key=session_key, object=item
+        )
         item.likes += 1
 
     event.save()
-    item.save(update_fields=['likes'])
+    item.save(update_fields=["likes"])
     return JsonResponse(
-            {
-                "status": "success",
-                "likes": item.likes,
-                "event": event.event,
-            }
+        {
+            "status": "success",
+            "likes": item.likes,
+            "event": event.event,
+        }
     )
 
 
 def check_last_event(item, user=None, session_key=None):
-    event = Events.objects.filter(session_key=session_key, object=item, user=user)
+    event = Events.objects.filter(
+        session_key=session_key, object=item, user=user
+    )
     if event.exists():
         event = event.last()
         if event.event == "like":
