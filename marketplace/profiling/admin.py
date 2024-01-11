@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import User, Item, Collection
+from .models import Item, Collection
 
 
 class ItemTabAdmin(admin.TabularInline):
@@ -9,23 +9,6 @@ class ItemTabAdmin(admin.TabularInline):
     search_fields = ("title", "collection")
     fk_name = "owner"
     extra = 1
-
-
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = (
-        "username",
-        "first_name",
-        "email",
-        "last_login",
-        "date_joined",
-        "is_staff",
-    )
-    list_editable = ("is_staff",)
-    search_fields = ["id", "username"]
-    list_filter = ("date_joined", "last_login")
-
-    inlines = (ItemTabAdmin,)
 
 
 @admin.register(Item)

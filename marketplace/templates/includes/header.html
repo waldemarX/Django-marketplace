@@ -103,7 +103,7 @@
                         </ul>
                         <div class="menu_side_area">
                             {% if not user.is_authenticated %}
-                            <a href="{% url "profiling:login" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Log in</span></a>
+                            <a href="{% url "users:login" %}" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Log in</span></a>
                             <span id="menu-btn"></span>
                             {% else %}
                             <div class="de-login-menu">
@@ -160,9 +160,9 @@
                                         {% if user.is_admin or user.is_staff %}
                                         <li><a href="{% url 'admin:index' %}"><i class="fa  fa-user-secret"></i> Admin</a>
                                         {% endif %}
-                                        <li><a href="{% url "profiling:profile" user.username %}"><i class="fa fa-user"></i> My profile</a>
-                                        <li><a href="{% url "profiling:edit_profile" %}"><i class="fa fa-pencil"></i> Edit profile</a>
-                                        <li><a href="{% url "profiling:logout" %}"><i class="fa fa-sign-out"></i> Log out</a>
+                                        <li><a href="{% url "users:profile" user.username %}"><i class="fa fa-user"></i> My profile</a>
+                                        <li><a href="{% url "users:edit_profile" %}"><i class="fa fa-pencil"></i> Edit profile</a>
+                                        <li><a href="{% url "users:logout" %}"><i class="fa fa-sign-out"></i> Log out</a>
                                     </ul>
                                 </div>
                                 {% if messages %}<span>{{ message }}</span>{% else %}{% endif %}

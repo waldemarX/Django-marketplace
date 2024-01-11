@@ -18,8 +18,8 @@ Gigaland - Log in
 								<div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
 									<div class="box-rounded padding40" data-bgcolor="#ffffff">
 										<h3 class="mb10">Log in</h3>
-										<p>Or create a new account <a href="{% url "profiling:register" %}">here<span></span></a>.</p>
-										<form action="{% url "profiling:login" %}" method="post" name="contactForm" id='contact_form' class="form-border" >
+										<p>Or create a new account <a href="{% url "users:register" %}">here<span></span></a>.</p>
+										<form action="{% url "users:login" %}" method="post" name="contactForm" id='contact_form' class="form-border" >
 
 											{% csrf_token %}
 											

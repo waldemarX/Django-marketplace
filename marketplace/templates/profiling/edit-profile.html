@@ -16,7 +16,7 @@ Gigaland - Edit profile
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
-                            <form action="{% url "profiling:edit_profile" %}" id="form-create-item" class="form-border" method="post" enctype='multipart/form-data'>
+                            <form action="{% url "users:edit_profile" %}" id="form-create-item" class="form-border" method="post" enctype='multipart/form-data'>
                                 {% csrf_token %}
                             <div class="de_tab tab_simple">
 

@@ -37,13 +37,13 @@ Gigaland - {{ item_info.title }}
                                         <h6>Creator</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="{% url "profiling:profile" item_info.creator.username %}">
+                                                <a href="{% url "users:profile" item_info.creator.username %}">
                                                     <img class="lazy" src="{{ item_info.creator.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "profiling:profile" item_info.creator.username %}">{{ item_info.creator.first_name }}</a>
+                                                <a href="{% url "users:profile" item_info.creator.username %}">{{ item_info.creator.first_name }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -82,13 +82,13 @@ Gigaland - {{ item_info.title }}
                                         <h6>Owner</h6>
                                         <div class="item_author">                                    
                                             <div class="author_list_pp">
-                                                <a href="{% url "profiling:profile" item_info.owner.username %}">
+                                                <a href="{% url "users:profile" item_info.owner.username %}">
                                                     <img class="lazy" src="{{ item_info.owner.avatar.url }}" alt="">
                                                     <i class="fa fa-check"></i>
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "profiling:profile" item_info.owner.username %}">{{ item_info.owner.first_name }}</a>
+                                                <a href="{% url "users:profile" item_info.owner.username %}">{{ item_info.owner.first_name }}</a>
                                             </div>
                                         </div>
 

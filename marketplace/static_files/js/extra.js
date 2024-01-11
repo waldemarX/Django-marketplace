@@ -126,7 +126,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const textDisplay = document.getElementById('text_display');
 	const categoryDisplay = document.getElementById('category_display');
 	const categoryInput = document.getElementById('id_category');
-	const collectionDropdownBtn = document.getElementById('collectionDropdownBtn');
 
 	const wordLimit = 22;
 

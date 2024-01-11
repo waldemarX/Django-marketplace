@@ -1,5 +1,5 @@
 from django.db import models
-from profiling.models import User
+from users.models import User
 
 
 class Post(models.Model):
@@ -9,13 +9,21 @@ class Post(models.Model):
         verbose_name="Highlighted Text", blank=True, null=True
     )
     is_published = models.BooleanField("Is published", default=True)
-    image = models.ImageField(upload_to="post_image", default="post_image/default.jpg")
-    pub_date = models.DateTimeField(verbose_name="Publishing date", auto_now_add=True)
+    image = models.ImageField(
+        upload_to="post_image", default="post_image/default.jpg"
+    )
+    pub_date = models.DateTimeField(
+        verbose_name="Publishing date", auto_now_add=True
+    )
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="Article author"
     )
     category = models.ForeignKey(
-        "Categories", on_delete=models.CASCADE, default=None, blank=True, null=True
+        "Categories",
+        on_delete=models.CASCADE,
+        default=None,
+        blank=True,
+        null=True,
     )
 
     class Meta:

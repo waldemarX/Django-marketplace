@@ -5,9 +5,9 @@ from .models import Post
 
 
 class ArticleCreationForm(forms.ModelForm):
-    image = forms.ImageField()
+    image = forms.ImageField(required=False)
     title = forms.CharField()
-    text = forms.CharField()
+    text = forms.Textarea()
 
     class Meta:
         model = Post

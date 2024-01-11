@@ -1,39 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 import requests
-
-
-class User(AbstractUser):
-    avatar = models.ImageField(
-        upload_to="user_avatar", default="user_avatar/default.jpg"
-    )
-    banner = models.ImageField(
-        upload_to="user_banner", default="user_banner/default.jpg"
-    )
-
-    class Meta:
-        verbose_name = "User"
-        verbose_name_plural = "Users"
-
-    def get_absolute_url(self):
-        return reverse("profiling:profile", args=[self.username])
-
-    def __str__(self):
-        return self.username
+from users.models import User
 
 
 class Item(models.Model):
     title = models.CharField("title", max_length=128, blank=True, null=True)
     image = models.ImageField(upload_to="item_image")
     creator = models.ForeignKey(
-        "User",
+        User,
         on_delete=models.CASCADE,
         related_name="creator",
         verbose_name="creator",
     )
     owner = models.ForeignKey(
-        "User",
+        User,
         on_delete=models.CASCADE,
         related_name="owner",
         verbose_name="owner"
@@ -78,7 +59,7 @@ class Collection(models.Model):
         default="collections/collection-default.jpg"
     )
     creator = models.ForeignKey(
-        "User",
+        User,
         on_delete=models.CASCADE,
         related_name="collection_creator",
         verbose_name="Collection creator",

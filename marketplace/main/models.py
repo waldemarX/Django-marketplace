@@ -1,5 +1,6 @@
 from django.db import models
-from profiling.models import User, Item
+from profiling.models import Item
+from users.models import User
 
 
 class Events(models.Model):

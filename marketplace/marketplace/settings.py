@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'main',
+    'users',
     'profiling',
     'articles'
 ]
@@ -153,5 +154,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'profiling.User'
-LOGIN_URL = '/p/login/'
+AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/user/login/'

@@ -19,7 +19,7 @@ Gigaland - Sign in
 									<div class="box-rounded padding40" data-bgcolor="#ffffff">
 										<h3 class="mb10">Sign in</h3>
 										<p><span></span></a></p>
-										<form action="{% url "profiling:register" %}" name="contactForm" id='contact_form' class="form-border" method="post" >
+										<form action="{% url "users:register" %}" name="contactForm" id='contact_form' class="form-border" method="post" >
 
 											{% csrf_token %}
 											
