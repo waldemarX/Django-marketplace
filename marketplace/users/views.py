@@ -55,6 +55,16 @@ def edit_profile(request):
     return render(request, template, context)
 
 
+@login_required
+def wallet(request):
+    template = "users/wallet.html"
+    context = {
+        "subtitle": "Wallet",
+        "dark": True,
+    }
+    return render(request, template, context)
+
+
 def register(request):
     template = "users/register.html"
     if request.method == "POST":

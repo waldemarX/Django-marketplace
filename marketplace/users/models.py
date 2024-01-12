@@ -10,6 +10,9 @@ class User(AbstractUser):
     banner = models.ImageField(
         upload_to="user_banner", default="user_banner/default.jpg"
     )
+    balance = models.DecimalField(
+        "balance", default=0.00, max_digits=4, decimal_places=2
+    )
 
     class Meta:
         verbose_name = "User"

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% load posts_tags %}
+
+{% block title %}
+Gigaland - Edit item {{ item.title }}
+{% endblock %}
+
+{% block content %}
+            
+            <!-- section begin -->
+            {% include "includes/subheader.html" %}
+            <!-- section close -->            
+
+            <!-- section begin -->
+			<section aria-label="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <span class="box-url-label">Most Popular</span>
+                                <img src="{% static "images/wallet/1.png" %}" alt="" class="mb20">
+                                <h4>Metamask</h4>
+                                <p>Start exploring blockchain applications in seconds.  Trusted by over 1 million users worldwide.</p>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/2.png" %}" alt="" class="mb20">
+                                <h4>Bitski</h4>
+                                <p>Bitski connects communities, creators and brands through unique, ownable digital content.</p>
+                            </a>
+                        </div>       
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/3.png" %}" alt="" class="mb20">
+                                <h4>Fortmatic</h4>
+                                <p>Let users access your Ethereum app from anywhere. No more browser extensions.</p>
+                            </a>
+                        </div>    
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/4.png" %}" alt="" class="mb20">
+                                <h4>WalletConnect</h4>
+                                <p>Open source protocol for connecting decentralised applications to mobile wallets.</p>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/5.png" %}" alt="" class="mb20">
+                                <h4>Coinbase Wallet</h4>
+                                <p>The easiest and most secure crypto wallet. ... No Coinbase account required.
+                                </p>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/6.png" %}" alt="" class="mb20">
+                                <h4>Arkane</h4>
+                                <p>Make it easy to create blockchain applications with secure wallets solutions.</p>
+                            </a>
+                        </div>       
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <img src="{% static "images/wallet/7.png" %}" alt="" class="mb20">
+                                <h4>Authereum</h4>
+                                <p>Your wallet where you want it. Log into your favorite dapps with Authereum.</p>
+                            </a>
+                        </div>    
+
+                        <div class="col-lg-3 mb30">
+                            <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
+                                <span class="box-url-label">Most Simple</span>
+                                <img src="{% static "images/wallet/8.png" %}" alt="" class="mb20">
+                                <h4>Torus</h4>
+                                <p>Open source protocol for connecting decentralised applications to mobile wallets.</p>
+                            </a>
+                        </div> 
+                        
+                        <!-- wallet -->
+                        <div class="modal fade" id="my_wallet" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered de-modal">
+                              <div class="modal-content">
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="modal-body">
+                                  <div class="p-3 form-border" style="text-align: center">
+                                      <h3>Fill up a purse</h3>
+                                      <h6>Enter quantity of <span class="id-color-2">ETH</span></h6>
+                                      <form method="post" action="">
+                                        {% csrf_token %}
+                                      <input type="text" name="balance" id="id_balance" class="form-control" value="" placeholder="ETH"/>
+                                      <div class="spacer-single"></div>
+                                      <input type="submit" name="submit" value="Recieve" class="btn-main"></input>
+                                      </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                           <!-- wallet -->
+
+                    </div>
+                </div>
+            </section>
+{% endblock content %}

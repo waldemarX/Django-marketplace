@@ -109,6 +109,13 @@
                             <div class="de-login-menu">
                                 <a href="{% url "profiling:create_options" %}" class="btn-main"><i class="fa fa-plus"></i><span>Create</span></a>
 
+
+                                <a href="{% url "users:wallet" %}" class="btn-main">
+                                    Wallet
+                                 </a>
+
+                    
+
                                 <span id="de-click-menu-notification" class="de-menu-notification">
                                     <span class="d-count">8</span>
                                     <i class="fa fa-bell"></i>
@@ -145,7 +152,7 @@
                                     <div class="spacer-10"></div>
                                     <div class="d-balance">
                                         <h4>Balance</h4>
-                                        12.858 ETH
+                                        {{ user.balance }} ETH
                                     </div>
                                     <div class="spacer-10"></div>
                                     <div class="d-wallet">
