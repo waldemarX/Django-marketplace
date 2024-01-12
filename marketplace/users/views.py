@@ -18,7 +18,7 @@ from profiling.utils import error_messages
 
 
 def profile(request, author_username):
-    template = "profiling/author.html"
+    template = "users/author.html"
     author_info = User.objects.get(username=author_username)
     item_info_owner = Item.objects.filter(owner=author_info.id)
     item_info_creator = Item.objects.filter(creator=author_info.id)
@@ -33,7 +33,7 @@ def profile(request, author_username):
 
 @login_required
 def edit_profile(request):
-    template = "profiling/edit-profile.html"
+    template = "users/edit-profile.html"
     if request.method == "POST":
         form = UserEditProfile(
             data=request.POST, instance=request.user, files=request.FILES
@@ -51,7 +51,7 @@ def edit_profile(request):
 
 
 def register(request):
-    template = "profiling/register.html"
+    template = "users/register.html"
     if request.method == "POST":
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
@@ -80,7 +80,7 @@ def register(request):
 
 
 def login(request):
-    template = "profiling/login.html"
+    template = "users/login.html"
 
     if request.method == "POST":
         form = UserLoginForm(data=request.POST)

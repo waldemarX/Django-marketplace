@@ -9,28 +9,28 @@ $(document).ready(function() {
 
 // for author.html
 document.addEventListener('DOMContentLoaded', function () {
-	if (document.getElementById('#btn_copy_profile')) {
-		document.querySelector('#btn_copy_profile').addEventListener('click', function () {
-        var walletText = document.querySelector('.profile_wallet').innerText;
-        
-        navigator.clipboard.writeText(walletText).then(function () {
-            var button = document.querySelector('#btn_copy_profile');
-            var originalText = button.textContent;
-
-            button.textContent = 'Copied!';
-            button.classList.add('clicked');
-
-            setTimeout(function () {
-                button.textContent = originalText;
-                button.classList.remove('clicked');
-            }, 750);
-        }).catch(function () {
-            console.error('Unable to copy text to clipboard');
+    var btn = document.querySelector('#btn_copy_profile')
+    if (btn) {
+        btn.addEventListener('click', function () {
+            var walletText = document.querySelector('.profile_wallet').innerText;
+    
+            navigator.clipboard.writeText(walletText).then(function () {
+                var button = document.querySelector('#btn_copy_profile');
+                var originalText = button.textContent;
+    
+                button.textContent = 'Copied!';
+                button.classList.add('clicked');
+    
+                setTimeout(function () {
+                    button.textContent = originalText;
+                    button.classList.remove('clicked');
+                }, 750);
+            }).catch(function () {
+                console.error('Unable to copy text to clipboard');
+            });
         });
-    });
-	}
+    }
 });
-
 // for create-single.html
 function previewImage() {
     // Получаем элементы
@@ -187,4 +187,3 @@ function lightenImage() {
         overlay.style.opacity = '0';
     });
 }
-

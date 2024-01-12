@@ -140,7 +140,7 @@
                                 <div id="de-submenu-profile" class="de-submenu">
                                     <div class="d-name">
                                         <h4>{{ user.first_name }}</h4>
-                                        <a href="profile.html">Set display name</a>
+                                        <a href="{% url "users:edit_profile" %}">Set display name</a>
                                     </div>
                                     <div class="spacer-10"></div>
                                     <div class="d-balance">

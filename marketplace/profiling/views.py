@@ -30,7 +30,7 @@ def collection(request, collection_slug):
 
 def item(request, id):
     template = "profiling/item-details.html"
-    item_info = Item.objects.select_related("owner").get(id=id)
+    item_info = Item.objects.select_related("owner", "creator").get(id=id)
     is_like = check_if_like(request, item_info)
     context = {"item_info": item_info, "is_like": is_like, "dark": False}
     return render(request, template, context)

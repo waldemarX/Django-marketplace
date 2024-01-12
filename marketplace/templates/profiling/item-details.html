@@ -8,6 +8,7 @@ Gigaland - {{ item_info.title }}
             <div id="top"></div>
             
 
+            
             <section aria-label="section" class="mt90 sm-mt-0">
                 <div class="container">
 					<div class="row">
@@ -28,9 +29,8 @@ Gigaland - {{ item_info.title }}
                                         </a>
                                     </div>
                                 </div>
-                                {% if item_info.collection %}
                                 <p>{{ item_info.collection.description }}</p>
-                                {% endif %}
+                                
 
                                 <div class="d-flex flex-row">
                                     <div class="mr40">
@@ -43,7 +43,7 @@ Gigaland - {{ item_info.title }}
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "users:profile" item_info.creator.username %}">{{ item_info.creator.first_name }}</a>
+                                                <a href="{% url "users:profile" item_info.creator.username %}">{% if item_info.creator.first_name %}{{ item_info.creator.first_name }}{% else %}{{ item_info.creator.username }}{% endif %}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@ Gigaland - {{ item_info.title }}
                                                 </a>
                                             </div>                                    
                                             <div class="author_list_info">
-                                                <a href="{% url "users:profile" item_info.owner.username %}">{{ item_info.owner.first_name }}</a>
+                                                <a href="{% url "users:profile" item_info.owner.username %}">{% if item_info.owner.first_name %}{{ item_info.owner.first_name }}{% else %}{{ item_info.owner.username }}{% endif %}</a>
                                             </div>
                                         </div>
 
@@ -307,11 +307,12 @@ Gigaland - {{ item_info.title }}
                                 {% endif %}
                                 
                             </div>
-                                
                             </div>
-                        </div>
-                    </div>
+							</div>
+						</div>
+					</div>
 				</div>
+			</div>
             </section>
 			
 			
