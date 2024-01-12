@@ -9,6 +9,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         "username",
         "first_name",
+        "balance",
         "email",
         "last_login",
         "date_joined",
