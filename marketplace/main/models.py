@@ -25,6 +25,7 @@ class Events(models.Model):
         related_name="object",
         verbose_name="object",
         blank=True,
+        null=True,
     )
 
     class Meta:

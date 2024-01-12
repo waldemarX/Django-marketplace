@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.urls import reverse
 from django.utils import timezone
+
+from main.utils import add_user_action_event
 from .utils import q_search
 from .models import Post, Categories
 from django.contrib import messages
@@ -64,8 +66,8 @@ def write_article(request):
             category = Categories.objects.get(category_name=category_name)
             post.category = category
             post.save()
-            messages.success(request, "Changes successfully applied!")
-            return HttpResponseRedirect(reverse("articles:write_article"))
+            messages.success(request, "Article successfully created!")
+            return HttpResponseRedirect(reverse("articles:articles"))
         else:
             errors = {
                 "Title": request.POST["title"],

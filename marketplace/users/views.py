@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from main.models import Events
+from main.utils import add_user_action_event
 from profiling.models import Item
 
 from .forms import (
@@ -41,7 +42,11 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Changes successfully applied!")
+
+            add_user_action_event("edit profile", request.user)
+
             return HttpResponseRedirect(reverse("users:edit_profile"))
+
         else:
             error_messages(request, "username", "email")
     else:
@@ -66,6 +71,8 @@ def register(request):
                 Events.objects.filter(session_key=session_key).update(
                     user=user, session_key=None
                 )
+
+            add_user_action_event("register", user)
 
             return HttpResponseRedirect(reverse("main:index"))
     else:
@@ -101,10 +108,10 @@ def login(request):
                         user=user, session_key=None
                     )
 
+                add_user_action_event("login", user)
+
                 redirect_page = request.POST.get("next", None)
-                if redirect_page and redirect_page != reverse(
-                    "users:logout"
-                ):
+                if redirect_page and redirect_page != reverse("users:logout"):
                     return HttpResponseRedirect(request.POST.get("next"))
                 else:
                     return HttpResponseRedirect(reverse("main:index"))
@@ -117,5 +124,6 @@ def login(request):
 
 @login_required
 def logout(request):
+    add_user_action_event("logout", request.user)
     auth.logout(request)
     return redirect(reverse("main:index"))

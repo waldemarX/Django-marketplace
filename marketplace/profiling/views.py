@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Item, Collection
-from main.utils import check_if_like
+from main.utils import add_user_action_event, check_if_like
 from .utils import error_messages
 
 
@@ -55,6 +55,7 @@ def create_single(request):
             item.owner = request.user
             item.save()
             messages.success(request, "Item successfully created!")
+            add_user_action_event("create item", request.user, item)
             return HttpResponseRedirect(
                 reverse("profiling:item", args=[item.id])
             )
@@ -83,6 +84,7 @@ def edit_item(request, id):
         )
         if form.is_valid():
             form.save()
+            add_user_action_event("edit item", request.user, item)
             messages.success(request, "Item successfully edited!")
             return redirect(request.META["HTTP_REFERER"])
         else:

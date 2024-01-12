@@ -99,3 +99,8 @@ def check_if_like(request, item):
     else:
         session_key = get_session_key(request)
         return check_last_event(item, session_key=session_key)
+
+
+def add_user_action_event(event, user, object=None):
+    event = Events(event=event, user=user, object=object)
+    event.save()
