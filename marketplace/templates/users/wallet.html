@@ -15,6 +15,7 @@ Gigaland - Edit item {{ item.title }}
             <!-- section begin -->
 			<section aria-label="section">
                 <div class="container">
+                    {% include "includes/messages.html" %}
                     <div class="row">
                         <div class="col-lg-3 mb30">
                             <a href="#" class="box-url" data-bs-toggle="modal" data-bs-target="#my_wallet">
@@ -90,9 +91,9 @@ Gigaland - Edit item {{ item.title }}
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <div class="modal-body">
                                   <div class="p-3 form-border" style="text-align: center">
-                                      <h3>Fill up a purse</h3>
+                                      <h3>Top up your balance</h3>
                                       <h6>Enter quantity of <span class="id-color-2">ETH</span></h6>
-                                      <form method="post" action="">
+                                      <form method="post" action="{% url "users:wallet" %}">
                                         {% csrf_token %}
                                       <input type="text" name="balance" id="id_balance" class="form-control" value="" placeholder="ETH"/>
                                       <div class="spacer-single"></div>

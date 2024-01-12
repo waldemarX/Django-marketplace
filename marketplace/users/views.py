@@ -7,6 +7,7 @@ from main.utils import add_user_action_event
 from profiling.models import Item
 
 from .forms import (
+    BalanceTopUpForm,
     UserEditProfile,
     UserLoginForm,
     UserRegisterForm,
@@ -58,6 +59,20 @@ def edit_profile(request):
 @login_required
 def wallet(request):
     template = "users/wallet.html"
+
+    if request.method == "POST":
+        form = BalanceTopUpForm(data=request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Balance successfully changed!")
+            add_user_action_event("top up balance", request.user)
+
+            return HttpResponseRedirect(reverse("users:wallet"))
+        else:
+            error_messages(request, "balance")
+    else:
+        form = BalanceTopUpForm()
+
     context = {
         "subtitle": "Wallet",
         "dark": True,

@@ -51,3 +51,11 @@ class UserEditProfile(UserChangeForm):
             'username',
             'email',
         )
+
+
+class BalanceTopUpForm(forms.ModelForm):
+    balance = forms.DecimalField()
+
+    class Meta:
+        model = User
+        fields = ('balance',)
