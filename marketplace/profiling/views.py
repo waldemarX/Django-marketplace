@@ -1,6 +1,10 @@
+from django.forms import ValidationError
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.db import transaction
+
+from main.models import Transactions
 
 from .forms import (
     SingleItemCreationForm,
@@ -10,7 +14,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Item, Collection
-from main.utils import add_user_action_event, check_if_like
+from main.utils import (
+    add_user_action_event,
+    add_user_transaction_event,
+    check_if_like,
+)
 from .utils import error_messages
 
 
@@ -32,6 +40,28 @@ def item(request, id):
     template = "profiling/item-details.html"
     item_info = Item.objects.select_related("owner", "creator").get(id=id)
     is_like = check_if_like(request, item_info)
+
+    if request.method == "POST":
+        try:
+            with transaction.atomic():
+                user = request.user
+                if user.balance < item_info.price:
+                    raise ValidationError("Not enough money on your balance")
+                price = item_info.price
+                user.balance -= price
+                user.save()
+                item_info.owner = user
+                item_info.save()
+                add_user_transaction_event(
+                    event="buy item", user=user, number=price, object=item_info
+                )
+                messages.success(request, "Item successfully yours!")
+                return HttpResponseRedirect(
+                    reverse("profiling:item", args=[item_info.id])
+                )
+        except ValidationError as e:
+            messages.error(request, str(e))
+
     context = {"item_info": item_info, "is_like": is_like, "dark": False}
     return render(request, template, context)
 

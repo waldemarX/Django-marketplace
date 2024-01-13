@@ -327,25 +327,21 @@ Gigaland - {{ item_info.title }}
               <div class="modal-body">
                 <div class="p-3 form-border">
                     <h3>Checkout</h3>
-                    You are about to purchase a <b>AnimeSailorClub #304</b> from <b>Monica Lucas</b>
-                    <div class="spacer-single"></div>
-                    <h6>Enter quantity. <span class="id-color-2">10 available</span></h6>
-                    <input type="text" name="buy_now_qty" id="buy_now_qty" class="form-control" value="1" />
+                    You are about to purchase a <b>{{ item_info.title }}</b> from <b>{{ item_info.owner }}</b>
                     <div class="spacer-single"></div>
                     <div class="de-flex">
                         <div>Your balance</div>
-                        <div><b>10.67856 ETH</b></div>
-                    </div>
-                    <div class="de-flex">
-                        <div>Service fee 2.5%</div>
-                        <div><b>0.00325 ETH</b></div>
+                        <div><b>{{ user.balance }} ETH</b></div>
                     </div>
                     <div class="de-flex">
                         <div>You will pay</div>
-                        <div><b>0.013325 ETH</b></div>
+                        <div><b>{{ item_info.price }} ETH</b></div>
                     </div>
                     <div class="spacer-single"></div>
-                    <a href="wallet.html" target="_blank" class="btn-main btn-fullwidth">Add funds</a>
+                    <form method="post" action="{% url "profiling:item" item_info.id %}">
+                        {% csrf_token %}
+                    <input type="submit" class="btn-main btn-fullwidth" value="Buy now">
+                    </form>
                 </div>
               </div>
             </div>

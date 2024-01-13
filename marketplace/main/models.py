@@ -34,3 +34,33 @@ class Events(models.Model):
 
     def __str__(self):
         return self.event
+
+
+class Transactions(models.Model):
+    event = models.CharField(
+        verbose_name="event", max_length=50, default="transaction"
+    )
+    object = models.ForeignKey(
+        Item,
+        on_delete=models.CASCADE,
+        related_name="t_object",
+        verbose_name="object",
+        blank=True,
+        null=True
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="t_user",
+        verbose_name="user",
+    )
+    number = models.DecimalField(
+        "eth", default=0.00, max_digits=4, decimal_places=2
+    )
+    transaction_date = models.DateTimeField(
+        verbose_name="transaction date", auto_now_add=True
+    )
+
+    class Meta:
+        verbose_name = "Transaction"
+        verbose_name_plural = "Transactions"

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from main.models import Events
-from main.utils import add_user_action_event
+from main.utils import add_user_action_event, add_user_transaction_event
 from profiling.models import Item
 
 from .forms import (
@@ -61,11 +61,16 @@ def wallet(request):
     template = "users/wallet.html"
 
     if request.method == "POST":
-        form = BalanceTopUpForm(data=request.POST, instance=request.user)
+        user = request.user
+        form = BalanceTopUpForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            money = form.cleaned_data["balance"]
+            user.balance += money
+            user.save()
+            add_user_transaction_event(
+                event="top up balance", user=request.user, number=money
+            )
             messages.success(request, "Balance successfully changed!")
-            add_user_action_event("top up balance", request.user)
 
             return HttpResponseRedirect(reverse("users:wallet"))
         else:

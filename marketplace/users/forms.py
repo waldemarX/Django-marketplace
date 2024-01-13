@@ -53,9 +53,8 @@ class UserEditProfile(UserChangeForm):
         )
 
 
-class BalanceTopUpForm(forms.ModelForm):
+class BalanceTopUpForm(forms.Form):
     balance = forms.DecimalField()
 
     class Meta:
-        model = User
         fields = ('balance',)

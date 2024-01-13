@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 import json
-from main.models import Events
+from main.models import Events, Transactions
 from profiling.models import Item
 
 
@@ -104,3 +104,8 @@ def check_if_like(request, item):
 def add_user_action_event(event, user, object=None):
     event = Events(event=event, user=user, object=object)
     event.save()
+
+
+def add_user_transaction_event(event, user, number, object=None):
+    tr = Transactions(event=event, user=user, object=object, number=number)
+    tr.save()
