@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -65,6 +66,8 @@ def wallet(request):
         form = BalanceTopUpForm(data=request.POST)
         if form.is_valid():
             money = form.cleaned_data["balance"]
+            if money <= 0:
+                raise ValidationError("Incorrect number")
             user.balance += money
             user.save()
             add_user_transaction_event(

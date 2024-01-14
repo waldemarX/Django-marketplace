@@ -58,3 +58,10 @@ class BalanceTopUpForm(forms.Form):
 
     class Meta:
         fields = ('balance',)
+
+    def clean_balance(self):
+        data = self.cleaned_data["balance"]
+
+        if data <= 0:
+            raise forms.ValidationError("Incorrect number")
+        return data

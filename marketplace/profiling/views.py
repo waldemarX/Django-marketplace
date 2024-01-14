@@ -4,8 +4,6 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.db import transaction
 
-from main.models import Transactions
-
 from .forms import (
     SingleItemCreationForm,
     SingleItemEditForm,
