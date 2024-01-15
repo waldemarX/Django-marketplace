@@ -26,6 +26,11 @@ def like(request):
         return check_item_for_like(request, session_key)
 
 
+def explore(request):
+    template = "home/explore.html"
+    return render(request, template)
+
+
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
