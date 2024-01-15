@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from main.utils import check_item_for_like, get_session_key
-from rest_framework import generics
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+from users.models import User
 from .serializers import ItemSerializer
 
 from profiling.models import Item
@@ -22,6 +26,11 @@ def like(request):
         return check_item_for_like(request, session_key)
 
 
-class ItemApi(generics.ListAPIView):
+class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+
+    @action(methods=['get'], detail=True)
+    def author(self, request, pk):
+        author = User.objects.get(pk=pk)
+        return Response({'author': author.username})

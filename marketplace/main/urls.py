@@ -1,10 +1,14 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'item', views.ItemViewSet)
 
 app_name = 'main'
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('like/', views.like, name='like'),
-    path('api/itemlist', views.ItemApi.as_view(), name='itemlist'),
+    path('api/', include(router.urls)),
 ]

@@ -38,7 +38,6 @@ def item(request, id):
     template = "profiling/item-details.html"
     item_info = Item.objects.select_related("owner", "creator").get(id=id)
     is_like = check_if_like(request, item_info)
-
     if request.method == "POST":
         try:
             with transaction.atomic():
