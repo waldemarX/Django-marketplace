@@ -60,12 +60,13 @@ Gigaland - Search
                             </div>
                         </div>                     
                         <!-- nft item begin -->
+                        {% for item in items %}
                         <div class="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
                             <div class="nft__item">
                                 <div class="de_countdown" data-year="2022" data-month="4" data-day="16" data-hour="8"></div>
                                 <div class="author_list_pp">
-                                    <a href="{% url "" %}" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Monica Lucas">                                    
-                                        <img class="lazy" src="{{  }}" alt="">
+                                    <a href="{% url "profiling:item" item.id %}" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Monica Lucas">                                    
+                                        <img class="lazy" src="{{ item.owner.avatar.url }}" alt="">
                                         <i class="fa fa-check"></i>
                                     </a>
                                 </div>
@@ -82,7 +83,7 @@ Gigaland - Search
                                         </div>
                                     </div>
                                     <a href="item-details.html">
-                                        <img src="images/items/static-1.jpg" class="lazy nft__item_preview" alt="">
+                                        <img src="{{ item.image.url }}" class="lazy nft__item_preview" alt="">
                                     </a>
                                 </div>
                                 <div class="nft__item_info">
@@ -103,7 +104,8 @@ Gigaland - Search
                                     </div>                            
                                 </div> 
                             </div>
-                        </div>                 
+                        </div>
+                        {% endfor %}  
 
                         <div class="col-md-12 text-center">
                             <a href="#" id="loadmore" class="btn-main wow fadeInUp lead">Load more</a>

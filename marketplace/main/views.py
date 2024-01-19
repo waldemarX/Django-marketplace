@@ -28,7 +28,11 @@ def like(request):
 
 def explore(request):
     template = "home/explore.html"
-    return render(request, template)
+    items = Item.objects.select_related("owner").all()
+    context = {
+        "items": items
+    }
+    return render(request, template, context)
 
 
 class ItemViewSet(viewsets.ModelViewSet):

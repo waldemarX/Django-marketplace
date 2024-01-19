@@ -1,3 +1,8 @@
 from django.test import TestCase
 
-# Create your tests here.
+
+class TestItem(TestCase):
+
+    def test_explore(self):
+        response = self.client.get('/explore/')
+        self.assertEqual(response.status_code, 200)
