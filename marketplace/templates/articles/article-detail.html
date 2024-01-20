@@ -19,9 +19,7 @@ Gigaland - {{ post.title }}
                                 <img alt="" src="{{ post.image.url }}" class="img-fullwidth rounded">
 
                                 <div class="post-text">
-                                    {% for p in post.text|split:"\r\n\r\n" %}
-                                    <p style="font-size: 19px; color: black;">{{ p }}</p>
-                                    {% endfor %}
+                                    <p style="font-size: 19px; color: black;">{{ post.text }}</p>
                                     
                                     <blockquote>{{ post.highlighted_text }}</blockquote>
 
