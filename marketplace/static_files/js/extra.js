@@ -187,3 +187,20 @@ function lightenImage() {
         overlay.style.opacity = '0';
     });
 }
+
+function previewAuthorImage(input, id_el) {
+    var file = input.files[0];
+    var imgElement = document.getElementById(id_el);
+
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            // Обновляем src изображения после выбора файла
+            imgElement.src = e.target.result;
+        };
+
+        // Чтение данных из файла как Data URL
+        reader.readAsDataURL(file);
+    }
+}

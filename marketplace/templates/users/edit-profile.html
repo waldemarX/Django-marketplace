@@ -80,7 +80,7 @@ Gigaland - Edit profile
                                                         <i class="fa fa-camera"></i>
                                                     </div>
                                                 </label>
-                                                <input type="file" id="id_avatar" name="avatar" style="display: none;">
+                                                <input type="file" id="id_avatar" name="avatar" style="display: none;" onchange="previewAuthorImage(this, 'click_profile_img')">
                                                 {% if form.avatar.errors %}
                                                 <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.avatar.errors }}</span>
                                                 {% endif %}  
@@ -96,7 +96,7 @@ Gigaland - Edit profile
                                                         <i class="fa fa-camera"></i>
                                                     </div>
                                                 </label>
-                                                <input type="file" id="id_banner" name="banner" style="display: none;">
+                                                <input type="file" id="id_banner" name="banner" style="display: none;" onchange="previewAuthorImage(this, 'click_banner_img')">
                                                 
                                                 {% if form.banner.errors %}
                                                 <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;">{{ form.banner.errors }}</span>
