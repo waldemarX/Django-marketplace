@@ -48,6 +48,7 @@ def add_event_like_or_dislike(item, session_key=None, user=None):
                 event = Events(
                     event="dislike",
                     user=user,
+                    user_receiver=item.owner,
                     session_key=session_key,
                     object=item,
                 )
@@ -56,6 +57,7 @@ def add_event_like_or_dislike(item, session_key=None, user=None):
                 event = Events(
                     event="like",
                     user=user,
+                    user_receiver=item.owner,
                     session_key=session_key,
                     object=item,
                 )

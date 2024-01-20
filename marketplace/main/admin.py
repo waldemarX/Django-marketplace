@@ -7,6 +7,7 @@ class EventAdmin(admin.ModelAdmin):
     list_display = (
         'event',
         'user',
+        'user_receiver',
         'session_key',
         'object',
         'event_date'

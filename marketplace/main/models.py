@@ -19,6 +19,14 @@ class Events(models.Model):
         blank=True,
         null=True,
     )
+    user_receiver = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_receiver",
+        verbose_name="user_receiver",
+        blank=True,
+        null=True,
+    )
     object = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
@@ -27,6 +35,7 @@ class Events(models.Model):
         blank=True,
         null=True,
     )
+    watch_status = models.BooleanField('stats', default=False)
 
     class Meta:
         verbose_name = "Event"

@@ -4,9 +4,11 @@ from main.utils import check_item_for_like, get_session_key
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from main.models import Events
+from django.db.models import Q
 
 from users.models import User
-from .serializers import ItemSerializer
+from .serializers import EventsSerializer, ItemSerializer
 
 from profiling.models import Item
 
@@ -29,9 +31,7 @@ def like(request):
 def explore(request):
     template = "home/explore.html"
     items = Item.objects.select_related("owner").all()
-    context = {
-        "items": items
-    }
+    context = {"items": items}
     return render(request, template, context)
 
 
@@ -39,7 +39,20 @@ class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-    @action(methods=['get'], detail=True)
+    @action(methods=["get"], detail=True)
     def author(self, request, pk):
         author = User.objects.get(pk=pk)
-        return Response({'author': author.username})
+        return Response({"author": author.username})
+
+
+class EventsViewSet(viewsets.ModelViewSet):
+    queryset = Events.objects.all()
+    serializer_class = EventsSerializer
+
+    @action(methods=["get"], detail=False)
+    def is_watched(self, request):
+        events = Events.objects.filter(
+            Q(user_receiver=request.user) & (Q(event="like") | Q(event="dislike"))
+        )
+        serializer = EventsSerializer(events, many=True)
+        return Response(serializer.data)
