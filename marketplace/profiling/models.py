@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 import requests
 from users.models import User
 
@@ -32,6 +33,9 @@ class Item(models.Model):
     )
     on_sale = models.BooleanField(default=True)
     likes = models.PositiveIntegerField(verbose_name="likes", default=0)
+    creation_date = models.DateTimeField(
+        verbose_name="creation date", auto_now_add=True,
+    )
 
     class Meta:
         verbose_name = "Item"

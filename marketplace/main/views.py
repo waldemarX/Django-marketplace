@@ -1,21 +1,34 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
-from main.utils import check_item_for_like, get_session_key
+from django.views.generic import TemplateView
+from django.db.models import Q
+
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from main.models import Events
-from django.db.models import Q
 
-from users.models import User
+
 from .serializers import EventsSerializer, ItemSerializer
-
+from main.utils import check_item_for_like, get_session_key
+from main.models import Events
+from users.models import User
 from profiling.models import Item
 
 
-def index(request):
-    template = "home/index.html"
-    return render(request, template)
+class IndexView(TemplateView):
+    template_name = "home/index.html"
+    items = Item.objects.select_related("owner").all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["items_hot"] = self.items.order_by("-creation_date")[:6]
+        context["items_pop"] = self.items.order_by("-likes")[:16]
+        return context
+
+
+# def index(request):
+#     template = "home/index.html"
+#     return render(request, template)
 
 
 @require_POST

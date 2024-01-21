@@ -80,6 +80,7 @@ $(document).ready(function() {
         })
         .catch(error => console.error('Error:', error));
     }
+    showNotifications();
 
     function Notifications(notificationCount) {
         if (notificationCount < 1) {
@@ -104,7 +105,6 @@ $(document).ready(function() {
         clearNotifications();
     });
 
-    showNotifications();
 
     function formatRelativeTime(dateTimeString) {
         const date = new Date(dateTimeString);

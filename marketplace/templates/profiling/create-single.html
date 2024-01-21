@@ -34,67 +34,17 @@ Gigaland - Articles
 
                                     <div class="spacer-40"></div>
 
-                                    <h5>Select method</h5>
-                                    <div class="de_tab tab_methods">
-                                        <ul class="de_nav">
-                                            <li class="active"><span><i class="fa fa-tag"></i>Fixed price</span>
-                                            </li>
-                                            <li><span><i class="fa fa-hourglass-1"></i>Timed auction</span>
-                                            </li>
-                                            <li><span><i class="fa fa-users"></i>Open for bids</span>
-                                            </li>
-                                        </ul>
+                                    <h5>Title</h5>
+                                    <input type="text" name="title" id="id_title" class="form-control" placeholder="e.g. 'Crypto Funk" />
 
-                                        <div class="de_tab_content">
+                                    <div class="spacer-20"></div>
 
-                                            <div id="tab_opt_1">
                                                 <h5>Price</h5>
                                                 <input type="text" name="price" id="id_price" class="form-control" placeholder="enter price for one item (ETH)" />
                                                 {% if form.price.errors %}
                                                 <span style="font-size: 95%; font-style: italic; color: red; opacity: 0.85;"><div style="margin: -16px;">{{ form.price.errors }}</div></span>
                                                 {% endif %}
-                                            </div>
 
-                                            <div id="tab_opt_2">
-                                                <h5>Minimum bid</h5>
-                                                <input type="text" name="item_price_bid" id="item_price_bid" class="form-control" placeholder="enter minimum bid" />
-
-                                                <div class="spacer-20"></div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <h5>Starting date</h5>
-                                                        <input type="date" name="bid_starting_date" id="bid_starting_date" class="form-control" min="1997-01-01" />
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <h5>Expiration date</h5>
-                                                        <input type="date" name="bid_expiration_date" id="bid_expiration_date" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div id="tab_opt_3">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="spacer-20"></div>
-
-                                    <div class="switch-with-title">
-                                        <h5><i class="fa fa- fa-unlock-alt id-color-2 icon_padlock"></i>Unlock once purchased</h5>
-                                        <div class="de-switch">
-                                          <input type="checkbox" id="switch-unlock" class="checkbox">
-                                          <label for="switch-unlock"></label>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <p class="p-info">Unlock content after successful transaction.</p>
-
-                                        <div class="hide-content">
-                                            <input type="text" name="item_unlock" id="item_unlock" class="form-control" placeholder="Access key, code to redeem or link to a file..." />             
-                                        </div>
-                                    </div>
 
                                     <div class="spacer-20"></div>
 
@@ -115,18 +65,11 @@ Gigaland - Articles
 
                                     <div class="spacer-20"></div>
 
-                                    <h5>Title</h5>
-                                    <input type="text" name="title" id="id_title" class="form-control" placeholder="e.g. 'Crypto Funk" />
-
-                                    <div class="spacer-20"></div>
+                                    
 
                                     <h5>Description</h5>
                                     <textarea data-autoresize name="description" id="id_description" class="form-control" placeholder="e.g. 'This is very limited item'"></textarea>
 
-                                    <div class="spacer-20"></div>
-
-                                    <h5>Royalties</h5>
-                                    <input type="text" name="item_royalties" id="item_royalties" class="form-control" placeholder="suggested: 0, 10%, 20%, 30%. Maximum is 70%" />
 
                                     <div class="spacer-single"></div>
 
