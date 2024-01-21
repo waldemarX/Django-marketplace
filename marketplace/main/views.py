@@ -26,11 +26,6 @@ class IndexView(TemplateView):
         return context
 
 
-# def index(request):
-#     template = "home/index.html"
-#     return render(request, template)
-
-
 @require_POST
 def like(request):
     if request.user.is_authenticated:
