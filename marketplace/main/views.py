@@ -52,7 +52,19 @@ class EventsViewSet(viewsets.ModelViewSet):
     @action(methods=["get"], detail=False)
     def is_watched(self, request):
         events = Events.objects.filter(
-            Q(user_receiver=request.user) & (Q(event="like") | Q(event="dislike"))
+            Q(user_receiver=request.user)
+            & (Q(event="like") | Q(event="dislike"))
         )
         serializer = EventsSerializer(events, many=True)
         return Response(serializer.data)
+
+    @action(methods=["get"], detail=False)
+    def clear(self, request):
+        events = Events.objects.filter(
+            Q(user_receiver=request.user)
+            & (Q(event="like") | Q(event="dislike"))
+        )
+        for event in events:
+            event.watch_status = True
+            event.save()
+        return Response({"cleared": "200"})

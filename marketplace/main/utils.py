@@ -66,7 +66,11 @@ def add_event_like_or_dislike(item, session_key=None, user=None):
             raise Events.DoesNotExist
     except Events.DoesNotExist:
         event = Events(
-            event="like", user=user, session_key=session_key, object=item
+            event="like",
+            user=user,
+            user_receiver=item.owner,
+            session_key=session_key,
+            object=item,
         )
         item.likes += 1
 

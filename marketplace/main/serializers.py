@@ -12,7 +12,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class EventsSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
-    object_info = ItemSerializer(source='object', read_only=True)
+    object_info = ItemSerializer(source="object", read_only=True)
     user_receiver = serializers.SerializerMethodField()
 
     class Meta:
@@ -21,16 +21,17 @@ class EventsSerializer(serializers.ModelSerializer):
 
     def get_user(self, obj):
         user_data = {
-            'id': obj.user.id,
-            'username': obj.user.username,
-            'first_name': obj.user.first_name,
+            "id": obj.user.id,
+            "username": obj.user.username,
+            "first_name": obj.user.first_name,
+            "avatar": obj.user.avatar.url,
         }
         return user_data
-    
+
     def get_user_receiver(self, obj):
         user_receiver_data = {
-            'id': obj.user_receiver.id,
-            'username': obj.user_receiver.username,
-            'first_name': obj.user_receiver.first_name,
+            "id": obj.user_receiver.id,
+            "username": obj.user_receiver.username,
+            "first_name": obj.user_receiver.first_name,
         }
         return user_receiver_data

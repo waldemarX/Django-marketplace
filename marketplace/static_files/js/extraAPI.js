@@ -43,38 +43,68 @@ $(document).ready(function() {
     });
 
     // Check events
-    var eventsAPI = '/api/events/is_watched/'
-    fetch(eventsAPI, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-    })
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(event => {
-            // Проверяем, что уведомление не просмотрено
-            if (!event.watch_status && event.user_receiver.id != event.user.id ) {
-                // Создаем HTML-элемент с использованием данных из объекта event
-                var htmlString = `
-                <li>
-                    <a href="">
-                        <img class="lazy" src="" alt="">
-                        <div class="d-desc">
-                            <span class="d-name"><b>${event.user_receiver.username}</b> ${event.event} your image</span>
-                            <span class="d-time">${formatRelativeTime(event.event_date)}</span>
-                        </div>
-                    </a>  
-                </li>`;  // Замените field1, field2 и т.д. на ваши реальные поля
-    
-                // Добавляем созданный HTML-элемент куда-то на вашу страницу
-                var container = document.getElementById('eventContainer');  // Замените yourContainerId на ID вашего контейнера
-                container.innerHTML += htmlString;
-            }
-        });
-    })
-    .catch(error => console.error('Error:', error));
+    function showNotifications() {
+        var eventsAPI = '/api/events/is_watched/'
+        fetch(eventsAPI, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            let notificationCount = 0;
+            data.forEach(event => {
+                // Проверяем, что уведомление не просмотрено
+                if (!event.watch_status && event.user_receiver.id != event.user.id ) {
+                    // Создаем HTML-элемент с использованием данных из объекта event
+                    var htmlString = `
+                    <li>
+                        <a href="/user/${event.user.username}">
+                            <img class="lazy" src="${event.user.avatar}" alt="">
+                            <div class="d-desc">
+                                <span class="d-name"><b>${event.user.username}</b> ${event.event} your image ${event.object_info.title}</span>
+                                <span class="d-time">${formatRelativeTime(event.event_date)}</span>
+                            </div>
+                        </a>  
+                    </li>`;  
+        
+                    var container = document.getElementById('eventContainer'); 
+                    container.innerHTML += htmlString;
+                    notificationCount++;
+                }
+            });
+            console.log('Total notifications:', notificationCount);
+            Notifications(notificationCount);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function Notifications(notificationCount) {
+        if (notificationCount < 1) {
+            $("#nCounter").empty();
+        } else {
+            $("#eventsCount").text(notificationCount);
+        }
+    }
+
+    function clearNotifications() {
+        $("#eventContainer").empty();
+        $("#nCounter").empty();
+        $("#de-submenu-notification").removeClass("open");
+        $("#de-submenu-notification").hide()
+        var clearNotificationAPI = '/api/events/clear/';
+        fetch(clearNotificationAPI, {
+            method: 'GET',
+        })
+    }
+
+    $("#clearNotifications").on("click", function() {
+        clearNotifications();
+    });
+
+    showNotifications();
 
     function formatRelativeTime(dateTimeString) {
         const date = new Date(dateTimeString);
