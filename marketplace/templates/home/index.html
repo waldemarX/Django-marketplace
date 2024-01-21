@@ -136,18 +136,20 @@ Gigaland - NFT Marketplace Website
                         </div>
                         <div class="col-md-12 wow fadeIn">
                             <ol class="author_list">
+                                {% for user in users %}
                                 <li>                                    
                                     <div class="author_list_pp">
-                                        <a href="author.html">
-                                            <img class="lazy" src="images/author/author-1.jpg" alt="">
+                                        <a href="{% url "users:profile" user.username %}">
+                                            <img class="lazy" src="{{ user.avatar.url }}" alt="">
                                             <i class="fa fa-check"></i>
                                         </a>
-                                    </div>                                    
+                                    </div>
                                     <div class="author_list_info">
-                                        <a href="author.html">Monica Lucas</a>
-                                        <span>3.2 ETH</span>
+                                        <a href="{% url "users:profile" user.username %}">{{ user.username }}</a>
+                                        <span>{{ user.balance }} ETH</span>
                                     </div>
                                 </li>
+                                {% endfor %}
                                 <li>
                                     <div class="author_list_pp">
                                         <a href="author.html">                                    
@@ -268,17 +270,7 @@ Gigaland - NFT Marketplace Website
                                         <span>0.6 ETH</span>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="author_list_pp">
-                                        <a href="author.html">                                    
-                                            <img class="lazy pp-author" src="images/author/author-12.jpg" alt="">
-                                            <i class="fa fa-check"></i>
-                                        </a>
-                                    </div>
-                                    <div class="author_list_info">
-                                        <a href="author.html">Fred Ryan</a>
-                                        <span>0.5 eth</span>
-                                    </div>
+                                    
                                 </li>
                             </ol>
                         </div>

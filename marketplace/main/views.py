@@ -18,11 +18,13 @@ from profiling.models import Item
 class IndexView(TemplateView):
     template_name = "home/index.html"
     items = Item.objects.select_related("owner").all()
+    users = User.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["items_hot"] = self.items.order_by("-creation_date")[:6]
         context["items_pop"] = self.items.order_by("-likes")[:16]
+        context["users"] = self.users.order_by("-balance")[:12]
         return context
 
 
