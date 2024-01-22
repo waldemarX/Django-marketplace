@@ -73,6 +73,7 @@ class EventsViewSet(viewsets.ModelViewSet):
         events = Events.objects.filter(
             Q(user_receiver=request.user)
             & (Q(event="like") | Q(event="dislike"))
+            & Q(watch_status="False")
         )
         for event in events:
             event.watch_status = True
