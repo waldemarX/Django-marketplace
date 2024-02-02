@@ -4,7 +4,6 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 from django.utils import timezone
 
-from main.utils import add_user_action_event
 from .utils import q_search
 from .models import Post, Categories
 from django.contrib import messages
